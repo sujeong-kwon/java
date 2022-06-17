@@ -1,0 +1,31 @@
+package com.varxyz.jv200.mode004;
+
+public class Imoji {
+	public String imojiPer() {
+		double randomNum = (Math.random() * 1566);
+		String answer = "";
+		if(randomNum <= 1.5 && randomNum >= 0) {
+			answer = "별";
+		}
+		else if(randomNum >= 2 && randomNum <= 6.5) {
+			answer = "팔각형";
+		}
+		else if(randomNum > 6 && randomNum < 16.5) {
+			answer = "육각형";
+		}
+		else if(randomNum > 15 && randomNum < 56.5){
+			answer = "오각형";
+		}
+		else if(randomNum > 55 && randomNum < 356.5){
+			answer = "사각형";
+		}
+		else if(randomNum > 355 && randomNum < 856.5){
+			answer = "삼각형";
+		}
+		else {
+			answer = "동그라미";
+		}
+		return answer;
+	}
+	
+}

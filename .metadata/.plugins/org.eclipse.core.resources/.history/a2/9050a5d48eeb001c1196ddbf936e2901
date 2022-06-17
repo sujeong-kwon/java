@@ -1,0 +1,13 @@
+package com.varxyz.jv200.mod006;
+
+public class NoteBook extends Product{
+	private boolean apple = false;
+	
+	public NoteBook(String name) {
+		super(name);
+	}
+	
+	public double getPrice() {
+		return 2500.0;
+	}
+}

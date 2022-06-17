@@ -1,0 +1,13 @@
+package com.varxyz.jv200.mod007;
+
+public class Cat extends Animal{
+	
+//	public void makeSound() {
+//		System.out.println("야옹");
+//	}
+	@Override
+	public void makeSound() {
+		// TODO Auto-generated method stub
+		
+	}
+}

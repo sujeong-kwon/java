@@ -1,0 +1,11 @@
+package com.varxyz.jv200.mode006;
+
+public class Manager extends Employee {
+	String department;
+
+	
+	public String getDetails() {
+		return super.getDetails() + "\nDepartment: " + department;
+	}
+
+}

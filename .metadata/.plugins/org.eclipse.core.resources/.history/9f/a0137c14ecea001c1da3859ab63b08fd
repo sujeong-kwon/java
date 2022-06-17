@@ -1,0 +1,10 @@
+package com.varxyz.jv200.mode006;
+
+public class EmployeeTest {
+	public static void main(String[] args) {
+		Employee e = new Employee();
+		e.name = "유비";
+		e.setSalary(200.5);
+		System.out.println(e.getDetails());
+	}
+}

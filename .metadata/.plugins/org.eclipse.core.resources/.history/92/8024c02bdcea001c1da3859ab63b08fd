@@ -1,0 +1,8 @@
+package com.varxyz.jv200.mode004;
+
+public class Imoji {
+	public String imojiPer(String[] gameContent) {
+		int randomNum = (int) (Math.random() * 1056);
+		return gameContent[randomNum];
+	}	
+}

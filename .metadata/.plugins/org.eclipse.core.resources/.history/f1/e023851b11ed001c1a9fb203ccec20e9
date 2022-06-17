@@ -1,0 +1,23 @@
+package com.varxyz.jv200.mod007;
+
+public class Airplane implements Flyer{
+
+	@Override
+	public void fly() {
+		System.out.println("비행기 : 날기");
+		
+	}
+
+	@Override
+	public void takeOff() {
+		// TODO Auto-generated method stub
+		System.out.println("비행기 : 이륙하기");
+	}
+
+	@Override
+	public void land() {
+		// TODO Auto-generated method stub
+		System.out.println("비행기 : 착륙하기");
+	}
+	
+}

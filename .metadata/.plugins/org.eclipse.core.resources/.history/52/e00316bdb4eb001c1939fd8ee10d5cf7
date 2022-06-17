@@ -1,0 +1,51 @@
+package com.varxyz.jv200.mode006;
+
+
+public class Employee {
+	protected String name;
+	double salary;
+	public MyDate birthDate;
+	
+	public String getDetails() {
+		return "Name: " + name + "\nSalary: " + salary + "\nbirthDay: " + birthDate;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public double getSalary() {
+		return salary;
+	}
+	
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+	
+	public MyDate getBirthDate() {
+		return birthDate;
+	}
+	
+	public void setBirthDate(MyDate birthDate) {
+		this.birthDate = birthDate;
+	}
+	
+	public boolean equals(Object o) {
+		Employee o1 = (Employee) o;
+		System.out.println(this.name);
+		System.out.println(o1.name);
+		System.out.println(this.birthDate);
+		System.out.println(o1.birthDate);
+		if(this.name.equals(o1.name)) {
+			System.out.println("hello2");
+			return true;
+		}
+		
+		return false;
+	}
+	
+}

@@ -1,0 +1,21 @@
+package com.varxyz.jv200.mode007;
+
+public class SmartPhone extends Product {
+	public SmartPhone(String name) {
+		super(name);
+	}
+	
+	public double getPrice() {
+		return 1000.0;
+	}
+	
+	public String getPlatform() {
+		String pf = null;
+		if(getName().startsWith("Android")) {
+			pf = "Android";
+		}else {
+			pf = "Apple";
+		}
+		return pf;
+	}
+}

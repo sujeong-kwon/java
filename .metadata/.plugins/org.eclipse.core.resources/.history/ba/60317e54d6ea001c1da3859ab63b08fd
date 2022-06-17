@@ -1,0 +1,19 @@
+package com.varxyz.jv200.mode004;
+
+public class Imoji {
+	public String imojiPer() {
+		int randomNum = (int) (Math.random() * 1000);
+		String answer = "";
+		if(randomNum == 1) {
+			answer = "럭키!ㅋㅋ" + String.valueOf(randomNum) + "%";
+		} else if(randomNum >= 2 && randomNum <= 701) {
+			answer = "동그라미" + String.valueOf(randomNum) + "%";
+		} else if(randomNum > 701 && randomNum < 800) {
+			answer = "몰라" + String.valueOf(randomNum) + "%";
+		} else {
+			answer = "두번재로 좋음" + String.valueOf(randomNum) + "%";
+		}
+		return answer;
+	}
+	
+}

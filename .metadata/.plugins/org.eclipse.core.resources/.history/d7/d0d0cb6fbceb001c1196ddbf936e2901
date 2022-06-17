@@ -1,0 +1,54 @@
+package com.varxyz.jv200.mod006;
+
+import java.util.Date;
+
+public class Employee {
+	protected String name;
+	protected double salary;
+	public MyDate birthDate;
+	
+	public String getDetails() {
+		return "Name: " + name + "\nSalary : " + salary; 
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public double getSalary() {
+		return salary;
+	}
+	
+	public void setSalary(double salary) {
+		this.salary = salary;
+	}
+	
+	public MyDate getBirthDate() {
+		return birthDate;
+	}
+	
+	public void setBirthDate(MyDate myDate) {
+		this.birthDate = myDate;
+	}
+	
+	public boolean equals(Object obj) {
+		if(obj instanceof Employee) {
+			Employee em = (Employee)obj;
+			if(this.name==em.name) {
+				System.out.println(this.name);
+				System.out.println(em.name);
+				System.out.println(this.birthDate);
+				System.out.println(em.birthDate);
+				return true;
+			}
+			if(this.birthDate.equals(em.birthDate)) {
+				return true;
+			}
+		}
+		return false;
+	}
+}

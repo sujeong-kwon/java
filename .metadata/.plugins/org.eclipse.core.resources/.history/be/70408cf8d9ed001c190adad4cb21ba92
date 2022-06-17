@@ -1,0 +1,11 @@
+package com.varxyz.jv200.mod010;
+
+public class PrimeTest {
+
+	public static void main(String[] args) {
+		Prime prime = new Prime();
+		prime.getPrime();
+
+	}
+
+}

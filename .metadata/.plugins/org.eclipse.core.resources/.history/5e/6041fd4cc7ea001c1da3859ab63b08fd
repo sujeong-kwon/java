@@ -1,0 +1,18 @@
+package com.varxyz.jv200.mode004;
+
+public class ArrayTest {
+
+	public static void main(String[] args) {
+		int[] nums = new int[10];
+		int[] nums2 = {3, 5, 9};
+		int[] nums3 = {1, 2, 5, 6, 3, 4, 7, 10, 9, 8, 12};
+		int[] nums4 = {3, 5, 7, 1, 4, 15};
+		for(int i = 0; i < nums.length; i++) {
+			nums[i] = i+1; 
+		}
+		
+		ArrayVerification arr = new ArrayVerification();
+		System.out.println(arr.checkRandom(nums3, nums4));
+	}
+
+}

@@ -1,0 +1,21 @@
+package com.varxyz.jv200.mode006;
+
+import java.util.Date;
+
+public class EmployeeTest {
+	public static void main(String[] args) {
+		Director e = new Director();
+		e.name = "유비";
+		e.salary = 200.5;
+		e.birthDate = new Date();
+		String detail = e.getDetails();
+		System.out.println(detail);
+		
+		Manager m = new Manager();
+		m.name = "장비";
+		m.salary = 500;
+		m.birthDate = new Date();
+		m.department = "장군";
+		System.out.println(m.getDetails());
+	}
+}

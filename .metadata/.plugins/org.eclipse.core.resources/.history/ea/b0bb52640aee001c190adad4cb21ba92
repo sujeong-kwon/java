@@ -1,0 +1,10 @@
+package com.varxyz.banking.domain;
+
+public class Account {
+	private String accountNum;
+	private double balance;
+	
+	public void deposit(double amount) { // 입금
+		balance += amount;
+	}
+}

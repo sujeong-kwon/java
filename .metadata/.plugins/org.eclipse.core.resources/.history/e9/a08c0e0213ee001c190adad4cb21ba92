@@ -1,0 +1,19 @@
+package com.varxyz.banking.domain;
+
+public class SavingsAccount extends Account{
+	private double interestRate; // 이자율
+	
+	public String withdraw(double amount) { // 출금
+		if(balance - amount < 0) {
+			// 예외발생
+			// 예외클래스(예외 이름 적절하게, checked exception을 썼다면 왜 그렇게 썼는지 서술)
+			throw new InsuffientBalanceException("잔고가 부족합니다.");
+		}
+		super.balance -= amount;
+		String str =  amount + "원이 출금되었습니다.\n" + "현재 잔액은 " + super.balance + "원입니다.";
+//		return "현재 잔액은 " + super.balance + "입니다.";
+		return str;
+	}
+}
+
+

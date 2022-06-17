@@ -1,0 +1,11 @@
+package com.varxyz.banking.domain;
+
+import com.varxyz.banking.mod001.Account;
+
+public class TestAccount {
+
+	public static void main(String[] args) {
+		Account a = new Account(1000.0);
+		System.out.println(a.getBalance());
+	}
+}

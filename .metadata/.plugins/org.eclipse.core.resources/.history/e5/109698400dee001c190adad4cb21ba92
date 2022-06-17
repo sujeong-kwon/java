@@ -1,0 +1,13 @@
+package com.varxyz.banking.domain;
+
+public class CheckingAccount extends Account{
+	private double overdraftAmount; // 대출한도액
+	
+	public void withdraw(double amount) { // 출금
+		if(balance < amount) {
+			
+		}else {
+			balance = balance - amount;
+		}
+	}
+}

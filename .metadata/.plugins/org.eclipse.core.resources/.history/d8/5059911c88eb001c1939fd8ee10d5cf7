@@ -1,0 +1,11 @@
+package com.varxyz.jv200.mode007;
+
+public class SmartPhone {
+	public SmartPhone(String name) {
+		super(name);
+	}
+	
+	public double getPrice() {
+		return 1000.0
+	}
+}

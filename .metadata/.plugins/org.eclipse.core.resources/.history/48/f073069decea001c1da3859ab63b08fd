@@ -1,0 +1,19 @@
+package com.varxyz.jv200.mode006;
+
+public class Manager extends Employee {
+	private String department;
+	String name;
+	int salary;
+	
+	public String getDetails() {
+		return super.getDetails() + "\nDepartment: " + getDepartment();
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+}

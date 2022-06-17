@@ -1,0 +1,5 @@
+package com.varxyz.jv200.mode006;
+
+public class Manager extends Employee {
+
+}

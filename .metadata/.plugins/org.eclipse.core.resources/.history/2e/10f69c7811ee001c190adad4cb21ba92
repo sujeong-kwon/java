@@ -1,0 +1,9 @@
+package com.varxyz.banking.domain;
+
+public class TestAccount {
+
+	public static void main(String[] args) {
+		SavingsAccount a = new SavingsAccount(100);
+		System.out.println(a.());
+	}
+}

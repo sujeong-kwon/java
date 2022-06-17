@@ -1,0 +1,16 @@
+package com.varxyz.jv200.mod006;
+
+public class CartTest {
+
+	public static void main(String[] args) {
+		Cart cart = new Cart();
+		cart.addProduct(new NoteBook("ThinkPad"));
+		cart.addProduct(new SmartPhone("Samsung Galuxy"));
+		cart.addProduct(new SmartPhone("Apple IPhone"));
+		
+		for(Product p: cart.getProducts()) {
+			System.out.println(p.getDetails());
+		}
+	}
+
+}

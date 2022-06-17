@@ -1,0 +1,7 @@
+package com.varxyz.jv200.mod010;
+
+public class InsuffientBalanceException extends RuntimeException{
+	public class InsuffientBalanceException(String msg) {
+		super(msg);
+	}
+}
