@@ -1,0 +1,50 @@
+package com.varxyz.banking.domain;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.varxyz.banking.service.CustomerService;
+import com.varxyz.banking.service.CustomerServiceImpl;
+
+public class AccountServiceImpl implements AccountService{
+	private List<Account> accountList = new ArrayList<Account>();
+	private CustomerService customerService;
+	
+	public AccountServiceImpl() {
+		customerService = new CustomerServiceImpl();
+	}
+	
+	public Account createSavingAccount(String accountNum, double balance, double interestRate) {
+		return new SavingsAccount(accountNum, balance, interestRate);
+	}
+	
+	public Account createCheckingAccount(String accountNum, double balance, double overdraftAmount) {
+		return new CheckingAccount(accountNum, balance, overdraftAmount);
+	}
+	
+	public void addAccount(Account account) {
+		accountList.add(account);
+	}
+	
+	public void addAccount(Account account, String ssn) {
+		Customer customer = customerService.getCustomerBySsn(ssn);
+		account.setCustomer(customer);
+	}
+	
+	public List<Account> getAccountBySsn(String ssn){ // 주민번호로 계좌번호 조회
+		Customer customer = customerService.getCustomerBySsn(ssn);
+		if(ssn.equals(customer)) {
+			return accountList;
+		}
+//		for(Account a : accountList) { // a는 하나의 account객체
+//			if(ssn.equals(a.getCustomer()) {
+//				return accountList;
+//			}
+//		}
+		return null;
+	}
+	
+	public Account getAccountByAccountNum(String accountNum) {
+		return null;
+	}	
+}

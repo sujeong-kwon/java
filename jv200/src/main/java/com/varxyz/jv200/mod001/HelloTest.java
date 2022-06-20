@@ -129,4 +129,24 @@ public class HelloTest {
  * }
  * throws Exception
  * 
+ * 2022-06-20
+ * <<interface>>
+ * collection
+ * - add(Object o)
+ * - remove()
+ * - get()
+ * set, list, map
+ * - set : 중복 x, 순서 x
+ * - list : 중복 허용, 순서 허용
+ * - map : (key - value)
+ * interface끼리 상속 가능
+ * interface는 객체를 만들 수 X
+ * Set - HashSet
+ * List - ArrayList
+ * Map - HashMap 
+ * 
+ * Generics
+ * 
+ * 
+ * 
  * */

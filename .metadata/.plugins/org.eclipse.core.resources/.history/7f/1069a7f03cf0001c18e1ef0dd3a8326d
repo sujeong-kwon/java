@@ -1,0 +1,7 @@
+package com.varxyz.jv200.mod006;
+
+import com.varxyz.jv200.mod005.Employee;
+
+public class Engineer extends Employee{
+	
+}

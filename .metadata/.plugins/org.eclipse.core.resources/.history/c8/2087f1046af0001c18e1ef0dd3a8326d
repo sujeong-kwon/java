@@ -1,0 +1,21 @@
+package com.varxyz.banking.domain;
+
+public class Account {
+	protected String accountNum; // 계좌번호
+	protected double balance = 1000; // 잔액
+	protected Customer customer;
+	
+	public Account(String accountNum, double balance) {
+		this.accountNum = accountNum;
+		this.balance = balance;
+	}
+	
+	public void deposit(double amount) { // 입금
+		balance += amount;
+	}
+
+	public void setCustomer(Customer customer) {
+		// TODO Auto-generated method stub
+		
+	}
+}

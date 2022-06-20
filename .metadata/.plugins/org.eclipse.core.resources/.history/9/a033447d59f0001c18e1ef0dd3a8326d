@@ -1,0 +1,22 @@
+package com.varxyz.banking.domain;
+
+import com.varxyz.banking.service.CustomerService;
+
+public class TestAccount {
+
+	public static void main(String[] args) {	
+//		SavingsAccount s_account = new SavingsAccount();
+//		CheckingAccount c_account = new CheckingAccount();
+//		
+//		try{
+//			System.out.println(s_account.withdraw(1000));
+//			System.out.println(c_account.withdraw(2000));
+//		}catch(InsuffientBalanceException e){
+//			e.printStackTrace();
+//		}
+		CustomerService sc = new CustomerService();
+		Customer c1 = new Customer(null, null, null, null, null, null);
+		sc.addCustomer();
+		
+	}
+}

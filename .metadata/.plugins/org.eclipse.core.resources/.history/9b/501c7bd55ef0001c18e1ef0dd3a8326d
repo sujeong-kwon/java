@@ -1,0 +1,10 @@
+package com.varxyz.banking.service;
+
+public class CustomerTest {
+
+	public static void main(String[] args) {
+		CustomerService constomerservice = new CustomerServiceImp2();
+		constomerservice.addCustomer(null);
+	}
+
+}

@@ -1,0 +1,16 @@
+package com.varxyz.banking.domain;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class AccountServiceImpl implements AccountService{
+	public List<Account> accountList = new ArrayList<Account>();
+	
+	public Account createSavingAccount(String accountNum, double balance, double interestRate) {
+		return new SavingsAccount(accountNum, balance, interestRate);
+	}
+	
+	public Account createCheckingAccount(String accountNum, double balance, double overdraftAmount) {
+		return new SavingsAccount(accountNum, balance, overdraftAmount);
+	}
+}

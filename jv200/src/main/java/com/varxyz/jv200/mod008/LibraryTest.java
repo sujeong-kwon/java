@@ -9,7 +9,7 @@ public class LibraryTest {
 		
 		library.addBook(b1);
 		library.addBook(b2);
-		System.out.println(library.getBook(3));
+		System.out.println(library.getBook(2));
 		
 	}
 

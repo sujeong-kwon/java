@@ -1,0 +1,31 @@
+package com.varxyz.banking.service;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import com.varxyz.banking.domain.Customer;
+
+/*
+ * CustomerService : Customer에 대한 서비스를 처리하는 클래스
+ * 1. 주요 메소드
+ * -.addCustomer() : 신규 고객 추가
+ * -.getCustomerBySsn : 주민번호로 고객 조회
+ * -.getAllCustomers() : 전체 고객 목록
+ * -.getNumOfCustomers() : 전체 고객 수
+ * 2. 기타
+ * -.CustomerService는 고객의 정보를 보관할 수 있는 속성을 유지해야 한다.
+ * -.고객의 정보를 유지할 수 있는 속성을 정의하라.
+ * 
+ * */
+
+public interface CustomerService {
+
+	public void addCustomer(Customer customer);
+	
+	public Customer getCustomerBySsn();
+	
+	public void getAllCustomers();
+	
+	public void getNumOfCustomers();
+}

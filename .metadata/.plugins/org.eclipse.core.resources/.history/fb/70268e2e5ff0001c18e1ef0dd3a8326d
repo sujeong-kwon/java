@@ -1,0 +1,14 @@
+package com.varxyz.banking.service;
+
+import com.varxyz.banking.domain.Customer;
+
+public class CustomerTest {
+
+	public static void main(String[] args) {
+		Customer c1 = new Customer();
+		c1.setCustomerId(null);
+		CustomerService constomerservice = new CustomerServiceImpl2();
+		constomerservice.addCustomer(c1);
+	}
+
+}

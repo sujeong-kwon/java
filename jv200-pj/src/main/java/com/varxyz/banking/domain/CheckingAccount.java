@@ -1,8 +1,13 @@
 package com.varxyz.banking.domain;
 
-public class CheckingAccount extends Account{
+public class CheckingAccount extends Account{ // 당좌계좌(-계좌)
 	private double overdraftAmount = 2000; // 대출한도액
 	private double plusAmount; // 잔액 + 대출한도액
+	
+	public CheckingAccount(String accountNum, double balance, double overdraftAmount) {
+		super(accountNum, balance);
+		this.overdraftAmount = overdraftAmount;
+	}
 	
 	public String withdraw(double amount) throws InsuffientBalanceException { // 출금
 		if(balance < amount) {
