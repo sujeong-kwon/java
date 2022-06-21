@@ -7,11 +7,17 @@ import com.varxyz.banking.service.CustomerService;
 import com.varxyz.banking.service.CustomerServiceImpl;
 
 public class AccountServiceImpl implements AccountService{
+	private static AccountService service = new AccountServiceImpl();
 	private List<Account> accountList = new ArrayList<Account>();
 	private CustomerService customerService;
 	
-	public AccountServiceImpl() {
-		customerService = new CustomerServiceImpl();
+	// singleton
+	private AccountServiceImpl() {
+		customerService = CustomerServiceImpl.getInstance(); // ?
+	}
+	
+	public static AccountService getInstance() {
+		return service;
 	}
 	
 	public Account createSavingAccount(String accountNum, double balance, double interestRate) {
@@ -22,11 +28,19 @@ public class AccountServiceImpl implements AccountService{
 		return new CheckingAccount(accountNum, balance, overdraftAmount);
 	}
 	
+	/**
+	 * 신규 계좌 등록
+	 * 계좌정보와 고객정보 전체를 캡슐화 
+	 */
 	public void addAccount(Account account) {
 		accountList.add(account);
 	}
 	
-	public void addAccount(Account account, String ssn) { // 생각해보기
+	/**
+	 * 전달된 ssn을 통해 고객을 조회한 후 신규 계좌 등록
+	 * 
+	 */
+	public void addAccount(Account account, String ssn) {
 		Customer customer = customerService.getCustomerBySsn(ssn);
 		account.setCustomer(customer);
 	}

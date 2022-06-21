@@ -7,8 +7,18 @@ import java.util.Map;
 import com.varxyz.banking.domain.Customer;
 
 public class CustomerServiceImpl implements CustomerService{
+	private static CustomerService service = new CustomerServiceImpl();
 	private Map<String, Customer> map = new HashMap<>();
-
+	
+	// singleton
+	private CustomerServiceImpl() {
+		super(); // 안써줘도 상관 x
+	}
+	
+	public static CustomerService getInstance() {
+		return service;
+	}
+	
 	@Override
 	public void addCustomer(Customer customer) {
 		if(!map.containsKey(customer.getSsn())) {

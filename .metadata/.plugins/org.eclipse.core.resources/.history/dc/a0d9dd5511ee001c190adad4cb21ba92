@@ -1,9 +1,0 @@
-package com.varxyz.banking.domain;
-
-public class TestAccount {
-
-	public static void main(String[] args) {
-		Account a = new Account(1000.0);
-		System.out.println(a.getBalance());
-	}
-}

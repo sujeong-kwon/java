@@ -18,6 +18,7 @@ public class Library {
 	private Book[] books = new Book[size];
 	private static Library library = new Library();
 	
+	// singleton
 	private Library() {
 		
 	}

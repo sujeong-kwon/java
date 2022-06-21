@@ -147,6 +147,69 @@ public class HelloTest {
  * 
  * Generics
  * 
+ * customer, customerservice 만듬
  * 
+ * 2022-06-21
+ * service는 하나만 있으면 됨 -> 특정 어느 하나에 국한되지 않음
+ * 모두에게 공통적인 기능 제공
  * 
+ * java - db
+ * 테이블 - 클래스
+ * 레코드 - 인스턴스
+ * 칼럼 - 속성
+ * java는 reference로 관계 형성
+ * 
+ * mysql 접속 명령어
+ * cmd창에 mysql -u root -p enter후
+ * 비밀번호(admin) 입력
+ * 
+ * 모든 데이터베이스 확인 : 
+ * show databases;
+ * 
+ * 데이터베이스 선택 : 
+ * use [데이터베이스명];
+ * use mysql;
+ * 
+ * user테이블의 host와 user 확인 : 
+ * select host, user from user;
+ * 
+ * 사용자 생성 : 
+ * create user '아이디'@localhost identified by '비밀번호';
+ * create user 'jv250'@localhost identified by 'jv250';
+ * 
+ * 데이터베이스 생성 :
+ * create database [데이터베이스명] default character set utf8;
+ * create database jv250 default character set utf8;
+ * 
+ * jv250[데이터베이스]에 있는 모든 것을 'jv250'@localhost란 사용자에게 권한 부여 :
+ * grant all privileges on jv250.* to 'jv250'@localhost with grant option;
+ * 
+ * 적용한 것을 바로 적용시키기 : 
+ * flush privileges;
+ * 
+ * 나가기 :
+ * exit
+ * 
+ * eclipse에서 mysql 사용하기
+ * 탭에서 Window -> Show View -> Data Source Explorer
+ * 
+ * SQL(Structured Query Language)
+ * 1. DQL(Data Query Language)
+ * - SELECT
+ * 2. DML(Data Manipulation Language)
+ * - INSERT
+ * - UPDATE
+ * - DELETE
+ * 3. DDL(Data Definition Language)
+ * - CREATE
+ * - ALTER
+ * - DROP
+ * - TRUNCATE
+ * - RENAME
+ * 4. DCL(Data Control Language)
+ * - GRANT 권한부여
+ * - REVOKE 권한해제
+ * 5. TCL(Transaction Control Language)
+ * - COMMIT
+ * - ROLLBACK
  * */
