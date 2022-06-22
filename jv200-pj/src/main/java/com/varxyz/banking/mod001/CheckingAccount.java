@@ -1,24 +1,25 @@
 package com.varxyz.banking.mod001;
 
 public class CheckingAccount extends Account{
-	private double overdraftAmount = 2000; // 대출한도액
-	private double plusAmount; // 잔액 + 대출한도액
+	private double overdraftAmount; // 대출한도액
 	
-	public String withdraw(double amount) throws InsuffientBalanceException { // 출금
-		if(balance < amount) {
+	public CheckingAccount(double initBalance, double overdraftAmount) {
+		super(initBalance);
+		this.overdraftAmount = overdraftAmount;
+	}
+
+	public void withdraw(double amount) throws OverdraftException { // 출금
+		if(balance < amount) { // 잔액이 출금하려는 금액보다 적을 때
 			// 잔고부족시 overdraftAmount 금액 한도 내에서 추가 출금을 승인
-			plusAmount = overdraftAmount + balance;
-			balance = plusAmount;
-			balance = balance - amount;
-			String str = overdraftAmount + "원이 대출되었습니다.\n" + amount + "원이 출금되었습니다.\n" + "현재 잔액은 " + balance + "원입니다.";		
-			if(overdraftAmount < amount) {
-				throw new InsuffientBalanceException("잔고가 부족합니다.");
+			double overdraftNeeded = amount - balance; // 대출필요액(출금액 - 잔액)
+			if(overdraftAmount < overdraftNeeded) { // 대출한도액보다 대출필요액이 클 때
+				throw new OverdraftException("에러: 대월금 초과", balance, overdraftAmount);
+			}else {
+				balance = 0.0; // 잔액을 0원으로 설정; 
+				overdraftAmount -= overdraftNeeded;
 			}
-			return str;
 		}else {
 			balance = balance - amount;
-			String str =  amount + "원이 출금되었습니다.\n" + "현재 잔액은 " + balance + "원입니다.";
-			return str;
 		}
 	}
 }
