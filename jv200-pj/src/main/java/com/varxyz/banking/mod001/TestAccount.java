@@ -1,9 +1,16 @@
 package com.varxyz.banking.mod001;
 
 public class TestAccount {
-	public static void main(String[] args) {
-		Account myAccount = new Account(675.2);
-		System.out.println(myAccount.getBalance());
-		System.out.println('\u3057');
+
+	public static void main(String[] args) {	
+		SavingsAccount s_account = new SavingsAccount();
+		CheckingAccount c_account = new CheckingAccount();
+		
+		try{
+			System.out.println(s_account.withdraw(1000));
+			System.out.println(c_account.withdraw(2000));
+		}catch(InsuffientBalanceException e){
+			e.printStackTrace();
+		}	
 	}
 }

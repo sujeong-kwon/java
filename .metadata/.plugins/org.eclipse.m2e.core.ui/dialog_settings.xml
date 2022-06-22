@@ -2,6 +2,11 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\ncs\eclipse-workspace__\jv250"/>
+			<item value="C:\ncs\eclipse-workspace__\jv250\src\main\java\com\varxyz\jv250\jdbc\JDBCExample5.java"/>
+			<item value="C:\ncs\eclipse-workspace__\jv250\pom.xml"/>
+			<item value="C:\ncs\eclipse-workspace__\jv200-pj"/>
+			<item value="C:\ncs\eclipse-workspace__\jv200-pj\src\main\resources"/>
 			<item value="C:\ncs\eclipse-workspace\jv200\src\main\java\com\varxyz\jv200\mode001\HelloTest.java"/>
 			<item value="C:\ncs\eclipse-workspace\jv200\src\main\java"/>
 		</list>
@@ -46,15 +51,13 @@
 	</section>
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="com.varxyz"/>
+			<item value="com.xxx"/>
 		</list>
 		<list key="name">
-			<item value="jv200-pj"/>
-			<item value="JV200"/>
+			<item value="JV300"/>
 		</list>
 		<list key="artifactId">
-			<item value="jv200-pj"/>
-			<item value="jv200"/>
+			<item value="jv300"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

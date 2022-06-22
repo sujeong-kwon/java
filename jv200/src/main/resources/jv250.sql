@@ -39,3 +39,22 @@ UPDATE Customer SET ssn='901212-1234567', phone='010-8989-8989' WHERE cid = 1001
 DELETE FROM Customer WHERE cid = 1006;
 
 DROP TABLE Sample10;
+
+CREATE TABLE ACCOUNT(
+	aid				BIGINT			PRIMARY KEY AUTO_INCREMENT,
+	accountNum		VARCHAR(11)		NOT NULL,			-- 111-11-1111
+	balance			DOUBLE			NOT NULL	DEFAULT 0.0,
+	interestRate	DOUBLE			NOT NULL	DEFAULT 0.0,
+	overdraft		DOUBLE			NOT NULL	DEFAULT 0.0,
+	accountType		CHAR(1)			NOT NULL	DEFAULT 'S',
+	customerId		BIGINT			NOT NULL,
+	regDate		TIMESTAMP			NOT NULL	DEFAULT CURRENT_TIMESTAMP,
+	
+	CONSTRAINT Account_customerId_FK FOREIGN KEY (customerId) REFERENCES Customer(cid)
+)AUTO_INCREMENT = 3001;
+
+SELECT * FROM ACCOUNT;
+
+INSERT INTO ACCOUNT (accountNum, balance, interestRate, overdraft, accountType, customerId) VALUES ('111-11-1111', 1000.0, 0.3, 2000.0, 'S', 1001);
+
+INSERT INTO ACCOUNT (accountNum, balance, interestRate, overdraft, accountType, customerId) VALUES ('222-22-2222', 2000.0, 0.3, 3000.0, 'C', 1002);

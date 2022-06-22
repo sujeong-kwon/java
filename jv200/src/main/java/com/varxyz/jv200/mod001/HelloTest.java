@@ -159,6 +159,9 @@ public class HelloTest {
  * 칼럼 - 속성
  * java는 reference로 관계 형성
  * 
+ * mysql 설치
+ * 환경변수 PATH 설정 C:\Program Files\MySQL\MySQL Server 8.0\bin
+ * 
  * mysql 접속 명령어
  * cmd창에 mysql -u root -p enter후
  * 비밀번호(admin) 입력
@@ -193,6 +196,10 @@ public class HelloTest {
  * eclipse에서 mysql 사용하기
  * 탭에서 Window -> Show View -> Data Source Explorer
  * 
+ * 만든 데이터베이스 이름, username, password 데이터베이스 생성 시 설정했던 것과 동일하게 지정 
+ * jar 연결 C:\Users\Administrator\.m2\repository\mysql\mysql-connector-java\8.0.29
+ * 
+ * 
  * SQL(Structured Query Language)
  * 1. DQL(Data Query Language)
  * - SELECT
@@ -212,4 +219,18 @@ public class HelloTest {
  * 5. TCL(Transaction Control Language)
  * - COMMIT
  * - ROLLBACK
+ * 
+ * 2022-06-22
+ * Java SE(표준 에디션) -> Java EE(엔터프라이즈 에디션)
+ * Account 테이블 만들기
+ * foreign key 사용
+ * JDBC(Java Database Connectivity)
+ * 패키지
+ * - java.sql.*
+ * - javax.sql.* (확장형 enterprise에서 주로 씀 요즘엔 경계 x)
+ * java는 문자열로 sql 전달
+ * 
+ * 새 프로젝트 생성 시
+ * pom.xml 수정하기!
+ * 
  * */

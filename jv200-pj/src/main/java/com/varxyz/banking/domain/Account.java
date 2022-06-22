@@ -1,5 +1,7 @@
 package com.varxyz.banking.domain;
 
+import com.varxyz.banking.domain.customer.Customer;
+
 public class Account {
 	protected String accountNum; // 계좌번호
 	protected double balance = 1000; // 잔액
