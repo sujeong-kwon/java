@@ -1,4 +1,4 @@
-package com.varxyz.jv250.jdbc.banking;
+package com.varxyz.jv250.banking;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
