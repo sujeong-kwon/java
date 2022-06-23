@@ -36,7 +36,7 @@ INSERT INTO Customer (name, ssn, phone, customerId, passwd) VALUES ('관우', '9
 
 UPDATE Customer SET ssn='901212-1234567', phone='010-8989-8989' WHERE cid = 1001;
 
-DELETE FROM Customer WHERE cid = 1006;
+DELETE FROM Account WHERE accountNum = "777-77-777";
 
 DROP TABLE Sample10;
 
@@ -48,7 +48,7 @@ CREATE TABLE ACCOUNT(
 	overdraft		DOUBLE			NOT NULL	DEFAULT 0.0,
 	accountType		CHAR(1)			NOT NULL	DEFAULT 'S',
 	customerId		BIGINT			NOT NULL,
-	regDate		TIMESTAMP			NOT NULL	DEFAULT CURRENT_TIMESTAMP,
+	regDate			TIMESTAMP		NOT NULL	DEFAULT CURRENT_TIMESTAMP,
 	
 	CONSTRAINT Account_customerId_FK FOREIGN KEY (customerId) REFERENCES Customer(cid)
 )AUTO_INCREMENT = 3001;
@@ -58,3 +58,15 @@ SELECT * FROM ACCOUNT;
 INSERT INTO ACCOUNT (accountNum, balance, interestRate, overdraft, accountType, customerId) VALUES ('111-11-1111', 1000.0, 0.3, 2000.0, 'S', 1001);
 
 INSERT INTO ACCOUNT (accountNum, balance, interestRate, overdraft, accountType, customerId) VALUES ('222-22-2222', 2000.0, 0.3, 3000.0, 'C', 1002);
+
+SELECT * FROM Account, Customer 
+WHERE Account.customerId = Customer.cid AND Customer.ssn = "901213-1234567";
+
+SELECT * FROM Account a INNER JOIN Customer c ON a.customerId = c.cid
+
+SELECT * FROM Account a INNER JOIN Customer c ON a.customerId = c.cid WHERE c.ssn = "901213-1234567";
+
+SELECT a.aid, a.accountNum, a.balance, a.interestRate, a.overdraft, a.accountType, c.name, c.ssn, c.phone, a.regDate
+				FROM Account a INNER JOIN Customer c ON a.customerId = c.cid
+				WHERE c.ssn = "901213-1234567";
+				
