@@ -38,7 +38,7 @@ UPDATE Customer SET ssn='901212-1234567', phone='010-8989-8989' WHERE cid = 1001
 
 DELETE FROM Account WHERE accountNum = "777-77-777";
 
-DROP TABLE Sample10;
+DROP TABLE Customer;
 
 CREATE TABLE ACCOUNT(
 	aid				BIGINT			PRIMARY KEY AUTO_INCREMENT,
@@ -69,4 +69,7 @@ SELECT * FROM Account a INNER JOIN Customer c ON a.customerId = c.cid WHERE c.ss
 SELECT a.aid, a.accountNum, a.balance, a.interestRate, a.overdraft, a.accountType, c.name, c.ssn, c.phone, a.regDate
 				FROM Account a INNER JOIN Customer c ON a.customerId = c.cid
 				WHERE c.ssn = "901213-1234567";
+				
+ALTER TABLE Customer CHANGE customerId userId VARCHAR(16) NOT NULL;
+
 				

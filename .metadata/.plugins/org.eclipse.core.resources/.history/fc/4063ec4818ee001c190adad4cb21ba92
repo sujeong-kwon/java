@@ -1,7 +1,0 @@
-package com.varxyz.banking.domain;
-
-public class InsuffientBalanceException extends Exception{
-	public InsuffientBalanceException(String msg) {
-		super(msg);
-	}
-}

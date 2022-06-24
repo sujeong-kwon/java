@@ -233,4 +233,47 @@ public class HelloTest {
  * 새 프로젝트 생성 시
  * pom.xml 수정하기!
  * 
+ * 2022-06-24
+ * 프로젝트 만들기
+ * - Libraies(jdk11.0.15_9)
+ * - Compiler 11로 바꾸기
+ * - pom.xml 바꾸기
+ * 
+ * 제일 먼저 만들 클래스?
+ * <domain>
+ * Customer.class(기본 데이터부터 만들기)
+ * Account.class
+ * SavingsAccount.class, CheckingAccount.class
+ * <exception>
+ * 예외클래스 추가(InsufficientBalanceException.class, OverdraftException.class)
+ * <dao>
+ * DataSourceManager.class
+ * final은 선언과 동시에 초기화해줘야 함
+ * 최소한 생성자에서 해줘야 함
+ * 
+ * static{} 한 번만 실행
+ * file에 보관 왜? 1. 보안성의 문제 2. 내부파일에 저장하는 것이 일반적
+ * 
+ * I/O
+ * stream : byte의 흐름
+ * file은 stream을 모아놓은 곳
+ * InputStream, OutputStream, Read, Write 최상위 추상클래스
+ * FileInputStream("경로"), FileOutputStream() 사용가능한 클래스
+ * OOP는 경로안의 .까지 다시 한 번 캡슐화 시켜서 객체 만듬
+ * 그래서 File이란 클래스가 나타난 것 그 안에 경로가 있는 것
+ * ex) 필통: 연필, 지우개를 넣을 곳을 새로 만든 것(인간적인 발상)
+ * FileInputStream은 byte을 읽는 것 (8bit) int는 2의 32승 -> int는 4byte double 8byte short 2byte
+ * char는 2byte
+ * FileInputStream(), FileOutputStream()안에는 read(), write() 메소드 있음
+ * byte읽는 것 버퍼
+ * 버퍼는 채우는 것(음료수 빨대)
+ * read는 읽은 byte를 return시킴 다 읽었을 경우 -1을 return while써서 활용 가능
+ * 
+ * /로 시작되면 절대주소
+ * 
+ * DAO
+ * 
+ * 프로젝트 아이디어
+ * 
+ * 
  * */
