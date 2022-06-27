@@ -85,7 +85,7 @@ public class AccountDao {
 					account.setCustomer(new Customer(rs.getString("name"),
 							rs.getString("ssn"), rs.getString("phone")));
 					account.setRegDate(rs.getTimestamp("regDate"));
-//					account.setAccountType(rs.("accountType"));
+					account.setAccountType(rs.getString("accountType").charAt(0));
 					list.add(account);
 				}
 			}finally {
@@ -95,5 +95,59 @@ public class AccountDao {
 			e.printStackTrace();
 		}
 		return list;
+	}
+	
+	// 계좌번호로 계좌찾기
+	public Account findAccountByAccountNum(String accountNum) {
+		String sql = "SELECT * FROM Account WHERE accountNum = ?";
+		Account account = null;
+		try {
+			Connection con = null;
+			PreparedStatement psmt = null;
+			ResultSet rs = null;
+			try {
+				con = DataSourceManager.getConnection();
+				psmt = con.prepareStatement(sql);
+				psmt.setString(1, accountNum);
+				rs = psmt.executeQuery();
+				while(rs.next()) {
+					if(rs.getString("accountType").charAt(0) == 'S') {
+						account = new SavingsAccount();
+						((SavingsAccount) account).setInterestRate(rs.getDouble("interestRate"));
+					}else {
+						account = new CheckingAccount();
+						((CheckingAccount) account).setOverdraftAmount(rs.getDouble("overdraft"));
+					}
+					account.setAid(rs.getLong("aid"));
+					account.setAccountNum(rs.getString("accountNum"));
+					account.setBalance(rs.getDouble("balance"));
+					account.setRegDate(rs.getTimestamp("regDate"));
+					account.setAccountType(rs.getString("accountType").charAt(0));
+				}
+			}finally {
+				DataSourceManager.close(rs, psmt, con);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return account;
+	}
+	
+	public void updateBalance(String accountNum, double balance) {
+		String sql = "UPDATE ACCOUNT SET balance = " + balance + " WHERE accountNum = ?";
+		try {
+			Connection con = null;
+			PreparedStatement psmt = null;
+			try {
+				con = DataSourceManager.getConnection();
+				psmt = con.prepareStatement(sql);
+				psmt.setString(1, accountNum);
+				psmt.executeUpdate();
+			}finally {
+				DataSourceManager.close(psmt, con);
+			}
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

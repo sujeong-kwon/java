@@ -1,5 +1,0 @@
-package com.varxyz.banking.service;
-
-public class CustomerServiceImpl1 implements CustomerService{
-	private Map<String, Customer> map = new HashMap<>();
-}

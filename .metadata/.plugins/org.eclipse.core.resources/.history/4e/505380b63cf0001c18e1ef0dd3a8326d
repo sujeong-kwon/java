@@ -1,7 +1,0 @@
-package com.varxyz.jv200.mod006;
-
-import com.varxyz.jv200.mod006.Manager;
-
-public class Director extends Manager{
-
-}

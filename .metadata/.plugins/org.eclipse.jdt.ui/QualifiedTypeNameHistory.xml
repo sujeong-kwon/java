@@ -17,7 +17,6 @@
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
     <fullyQualifiedTypeName name="java.util.ArrayList"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="com.varxyz.jv251.exception.InsufficientBalanceException"/>
     <fullyQualifiedTypeName name="com.varxyz.jv251.exception.OverdraftException"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
@@ -29,8 +28,13 @@
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+    <fullyQualifiedTypeName name="com.varxyz.jv251.dao.CustomerDao"/>
+    <fullyQualifiedTypeName name="com.varxyz.jv251.dao.AccountDao"/>
+    <fullyQualifiedTypeName name="com.varxyz.jv251.exception.CustomerNotFoundException"/>
     <fullyQualifiedTypeName name="com.varxyz.jv251.domain.CheckingAccount"/>
-    <fullyQualifiedTypeName name="com.varxyz.jv251.domain.SavingsAccount"/>
-    <fullyQualifiedTypeName name="com.varxyz.jv251.domain.Account"/>
     <fullyQualifiedTypeName name="com.varxyz.jv251.domain.Customer"/>
+    <fullyQualifiedTypeName name="com.varxyz.jv251.domain.Account"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="com.varxyz.jv251.domain.SavingsAccount"/>
 </qualifiedTypeNameHistroy>

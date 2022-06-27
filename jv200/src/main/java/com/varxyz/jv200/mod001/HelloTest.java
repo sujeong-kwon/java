@@ -273,7 +273,31 @@ public class HelloTest {
  * 
  * DAO
  * 
- * 프로젝트 아이디어
+ * 프로젝트 아이디어(7/9)
+ * 
+ * 2022-06-27
+ * 조별로 수요일까지 어떤 프로젝트 할 것인지 정하기(요구사항 테스트)
+ * 1. 목적 명시
+ * 2. 시스템에서 제공하는 기능적 요구사항
+ * 기능적 요구사항
+ * 비기능적 요구사항 (속도..)
+ * 3. 소프트웨어적 요구사항(소프트웨어적으로 필요한 기능적 요구사항 목록 작성 : JDK, DB)
+ * 4. 유즈케이스 목록
+ * 5. 클래스 목록
+ * 6. 관련 이슈
+ * 
+ * EagerLoading
+ * LazyLoading
+ * 
+ * Tomcat 서버 연결
+ * tomcat https://tomcat.apache.org/download-80.cgi
+ * 64bit window.zip 다운
+ * 환경변수 설정
+ * CATALINA_HOME
+ * C:\ncs\apache-tomcat-8.5.81
+ * PATH
+ * %CATALINA_HOME%\bin
+ * 
  * 
  * 
  * */

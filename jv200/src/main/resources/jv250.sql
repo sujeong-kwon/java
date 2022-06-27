@@ -5,8 +5,6 @@ CREATE TABLE Sample10 (
 	address		VARCHAR(40)		DEFAULT NULL
 );
 
-SELECT * FROM Customer;
-
 INSERT INTO Sample10 VALUES (1, '유비', '1996-10-25', '대구 중구 반월당');
 
 INSERT INTO Sample10 VALUES (2, '관우', '1996-08-21', '대구 달서구');
@@ -55,6 +53,8 @@ CREATE TABLE ACCOUNT(
 
 SELECT * FROM ACCOUNT;
 
+SELECT * FROM Customer;
+
 INSERT INTO ACCOUNT (accountNum, balance, interestRate, overdraft, accountType, customerId) VALUES ('111-11-1111', 1000.0, 0.3, 2000.0, 'S', 1001);
 
 INSERT INTO ACCOUNT (accountNum, balance, interestRate, overdraft, accountType, customerId) VALUES ('222-22-2222', 2000.0, 0.3, 3000.0, 'C', 1002);
@@ -71,5 +71,7 @@ SELECT a.aid, a.accountNum, a.balance, a.interestRate, a.overdraft, a.accountTyp
 				WHERE c.ssn = "901213-1234567";
 				
 ALTER TABLE Customer CHANGE customerId userId VARCHAR(16) NOT NULL;
+
+SELECT a.aid, a.accountNum, a.balance, a.interestRate, a.overdraft, a.accountType, c.name, c.ssn, c.phone, a.regDate FROM Account a INNER JOIN Customer c ON a.customerId = c.cid WHERE c.ssn = ?
 
 				

@@ -3,8 +3,8 @@ package com.varxyz.banking.domain;
 import com.varxyz.banking.domain.customer.Customer;
 import com.varxyz.banking.domain.customer.CustomerService;
 import com.varxyz.banking.domain.customer.CustomerServiceImpl;
-import com.varxyz.banking.domain.service.AccountService;
 import com.varxyz.banking.domain.service.AccountServiceImpl;
+import com.varxyz.jv251.exception.AccountService;
 
 public class AccountTest {
 

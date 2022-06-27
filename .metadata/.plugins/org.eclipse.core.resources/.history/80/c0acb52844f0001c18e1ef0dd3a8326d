@@ -1,8 +1,0 @@
-package com.varxyz.jv200.mod011;
-
-public class MapExample {
-	public static void main(String[] args) {
-		Map<Integer, String> map = new HashMap<Integer, String>();
-		map.push(new Integer(1), "유비");
-	}
-}

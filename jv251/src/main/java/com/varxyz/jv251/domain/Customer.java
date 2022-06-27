@@ -25,6 +25,15 @@ public class Customer {
 		this.phone = phone;
 	}
 	
+	public Customer(String name, String ssn, String phone, String userId, String passwd) {
+		super();
+		this.name = name;
+		this.ssn = ssn;
+		this.phone = phone;
+		this.userId = userId;
+		this.passwd = passwd;
+	}
+
 	/**
 	 * @return the cid
 	 */
