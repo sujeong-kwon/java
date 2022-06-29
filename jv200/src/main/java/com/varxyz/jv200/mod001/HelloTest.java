@@ -269,7 +269,7 @@ public class HelloTest {
  * 버퍼는 채우는 것(음료수 빨대)
  * read는 읽은 byte를 return시킴 다 읽었을 경우 -1을 return while써서 활용 가능
  * 
- * /로 시작되면 절대주소
+ * /로 시작되면 절대주소 없으면 무조건 상대주소
  * 
  * DAO
  * 
@@ -373,6 +373,68 @@ public class HelloTest {
  *  web.xml
  *  <url-pattern>/hello.view</url-pattern> .view로 속이는 것 (네이버는 .nhn <- 없는 명칭)
  *  
+ *  2022-06-29
+ *  Servlet 인터페이스와 서블릿 라이프사이클
+ *  	init()/service()/destroy()/getServletConfig()
+ *  	1. 요청에 의해 특정 서블릿 호출
+ *  	2. 해당 서블릿 생성 및 로드
+ *  	3. init() 메소드 호출 (최초 1회 호출)
+ *  	4. service() 메소드 호출 ex) doGet, doPost
+ *  	5. destroy() 메소드 호출 (소멸 직전 1회 호출)   
+ *  
+ * servlet 프로젝트 구조 (중요!)
+ * Tomcat
+ *  -webapps
+ *   -ROOT (http://localhost:8080/)
+ *   -JV300 (http://localhost:8080/jv300)
+ *   	-index.html
+ *   	-config.view (http://localhost:8080/jv300/config.view) // url-pattern이 /config.view일 경우
+ *   	-mod003(패키지)
+ *   		-abc.html (http://localhost:8080/jv300/mod003/abc.html)
+ *   		-abc.view (http://localhost:8080/jv300/mod003/abc.view) // url-pattern이 /mod003/abc.view일 경우
+ *   	-WEB_INF
+ *      	-web.xml (D.D)
+ *      	-classess 
+ *      		-com.varxyz.jv300
+ *      			-mod003
+ *      				-AbcServlet.class
+ *      	-lib
  * 
- *                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   
+ * <form action=""></form> action에 들어갈 것?
+ * - Servlet
+ * - action은 submit 눌렀을 때 처리하는 것
+ * submit
+ * 
+ * 주차관리시스템
+ * 사용자?
+ * 제공하는 것?
+ * 누가 이 시스템을 구입해서 사용하는 가?
+ * 주차자리가 비었다는 건 어떻게 파악하는가? 센서 -> 이렇게 되면 주차장사업에 앱이 달려가는 것이기 때문에 안됨
+ * 
+ * 명세화 금요일까지
+ * 한쪽은 고객 한쪽은 시스템개발
+ * 고객이 이런 시스템이 필요하다고 설명
+ * 고객이 말하는 걸 글로 다 옮기기
+ * 옮긴 것에서 요구사항 뽑기 
+ * 온라인에서 오프라인에서 일어나는 것을 구분
+ * 시스템 개발하는 사람들은 요구사항을 구분짓기
+ * 인터뷰를 통해서 요구사항 뽑아내기
+ * 최대 15개 안쪽으로 목록 뽑기
+ * 
+ * 회원가입 폼(add_user.html)
+ * 	회원 아이디	 : userId
+ * 	비밀번호   : passwd
+ * 	이름      : userName
+ * 	주민번호   : ssn (앞의 6자리만)
+ * 	이메일1   : email1(아이디)
+ * 	이메일2   : email2(메일도메인 ex: naver.com, gmail.com...)
+ * 	관심분야   : concerns(체크박스 : 다중 선택가능, ex) Java, Servlet/JSP, EJB, Android, Spring)
+ *  
+ *  회원가입 서블릿(AddUserServlet.java)
+ *   회원이 등록한 정보를 받아 회원가입에서 입력한 정보를 출력
+ * 
+ *  회원가입 폼 작성시, 스크립트나 css 사용가능
+ *  체크박스처럼 하나 이상의 값이 전달되는 경우 서블릿에서 파라메터 정보 받는 법
+ *   String[] concerns = request.getParameterValues("concerns")
+ *                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
  * */

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+	body{
+	 	color: black;
+	}
+</style>
+<body>
+<!--
+<url-pattern>/mod004/add_user.do</url-pattern>
+-->
+<form action="add_user.do" method="get">
+	회원 아이디 : <input type="text" name="userId" placeholder="아이디 입력"/><br>
+	비밀번호 : <input type="password" name="passwd" /><br>
+	이름 : <input type="text" name="userName" /><br>
+	주민번호 : <input type="text" name="ssn" /><br>
+	이메일 : <input type="text" name="email1" />@
+			<select name="email2">
+		        <option value="">-- 선택 --</option>
+		        <option value="google.com">gmail.com</option>
+		        <option value="naver.com">naver.com</option>
+	      	</select><br>
+	관심분야 :  
+      Java<input type="checkbox" name="concerns" value="Java">
+      Servlet/JSP<input type="checkbox" name="concerns" value="Servlet/JSP">
+      EJB<input type="checkbox" name="concerns" value="EJB">
+      Android<input type="checkbox" name="concerns" value="Android">
+      Spring<input type="checkbox" name="concerns" value="Spring"><br>
+	<input type="submit" value="확인" />
+</form>
+</body>
+</html>

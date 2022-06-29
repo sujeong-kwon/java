@@ -5,11 +5,24 @@
        version="3.1">
 	<display-name>Archetype Created Web Application</display-name>
 	<servlet>
-     <servlet-name>GuguServlet</servlet-name>
-     <servlet-class>com.varxyz.jv300.mod002.GuguServlet</servlet-class>
+     <servlet-name>LifeCycleTestServlet</servlet-name>
+     <servlet-class>com.varxyz.jv300.mod003.LifeCycleTestServlet</servlet-class>
   	</servlet>
   	<servlet-mapping>
-     <servlet-name>GuguServlet</servlet-name>
-     <url-pattern>/gugudan.view</url-pattern>
+     <servlet-name>LifeCycleTestServlet</servlet-name>
+     <url-pattern>/lifecycle.view</url-pattern>
+  	</servlet-mapping>
+	
+	<servlet>
+     <servlet-name>ServletConfigTestServlet</servlet-name>
+     <servlet-class>com.varxyz.jv300.mod003.ServletConfigTestServlet</servlet-class>
+     <init-param>
+     	<param-name>season-list</param-name>
+     	<param-value>Spring, Summer, Fall, Winter</param-value>
+     </init-param>
+  	</servlet>
+	<servlet-mapping>
+     <servlet-name>ServletConfigTestServlet</servlet-name>
+     <url-pattern>/config.view</url-pattern>
   	</servlet-mapping>
 </web-app>
