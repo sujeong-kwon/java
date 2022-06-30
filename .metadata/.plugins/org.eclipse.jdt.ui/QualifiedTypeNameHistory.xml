@@ -16,7 +16,6 @@
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="java.sql.Date"/>
     <fullyQualifiedTypeName name="java.util.Date"/>
-    <fullyQualifiedTypeName name="java.util.ArrayList"/>
     <fullyQualifiedTypeName name="com.varxyz.jv251.exception.InsufficientBalanceException"/>
     <fullyQualifiedTypeName name="com.varxyz.jv251.exception.OverdraftException"/>
     <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
@@ -33,7 +32,6 @@
     <fullyQualifiedTypeName name="com.varxyz.jv251.domain.CheckingAccount"/>
     <fullyQualifiedTypeName name="com.varxyz.jv251.domain.Customer"/>
     <fullyQualifiedTypeName name="com.varxyz.jv251.domain.Account"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="java.util.Random"/>
     <fullyQualifiedTypeName name="com.varxyz.jv251.domain.SavingsAccount"/>
     <fullyQualifiedTypeName name="javax.servlet.ServletException"/>
@@ -43,5 +41,14 @@
     <fullyQualifiedTypeName name="java.io.IOException"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
     <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
+    <fullyQualifiedTypeName name="javax.servlet.annotation.MultipartConfig"/>
+    <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="java.util.Enumeration"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.Part"/>
     <fullyQualifiedTypeName name="java.io.PrintWriter"/>
+    <fullyQualifiedTypeName name="javax.servlet.Servlet"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="javax.servlet.RequestDispatcher"/>
 </qualifiedTypeNameHistroy>

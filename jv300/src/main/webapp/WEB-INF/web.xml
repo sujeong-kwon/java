@@ -21,8 +21,8 @@
      	<param-value>Spring, Summer, Fall, Winter</param-value>
      </init-param>
   	</servlet>
-	<servlet-mapping>
-     <servlet-name>ServletConfigTestServlet</servlet-name>
-     <url-pattern>/config.view</url-pattern>
-  	</servlet-mapping>
+ 	<servlet-mapping>
+    <servlet-name>ServletConfigTestServlet</servlet-name>
+    <url-pattern>/config.view</url-pattern>
+ 	</servlet-mapping>
 </web-app>

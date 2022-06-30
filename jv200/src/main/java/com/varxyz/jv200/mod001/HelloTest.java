@@ -436,5 +436,80 @@ public class HelloTest {
  *  회원가입 폼 작성시, 스크립트나 css 사용가능
  *  체크박스처럼 하나 이상의 값이 전달되는 경우 서블릿에서 파라메터 정보 받는 법
  *   String[] concerns = request.getParameterValues("concerns")
- *                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+ *   
+ * JSP (Java Server Page)
+ *  -. 사용자를 위한 동적 뷰를 제공한다.
+ *  -. 프리젠테이션 코드를 서블릿이 아닌 JSP를 통해 작성함으로써 코드 작성을 간소화
+ *  -. 서블릿과 JSP를 상호보완적으로 사용함으로써 Model2 아키텍처 기반의 애플리케이션을 작성한다.
+ *  -. 웹 디자이너와 프로그래머의 역할 구분을 보다 증진시킨다.
+ * 
+ * JSP 특징
+ *  -. 기본적으로 JSP는 서블릿 인스턴스로 변환된다.
+ *  -. JSP페이지를 작성한 후 저장하면 컨테이너에 의해 (자바)소스변환, 컴파일, 실행이 자동으로 이뤄진다.
+ *  	hello.jsp ===> hello.java ===> hello.class ===> 실행(서블릿)
+ *  			translation      compile 			  runtime
+ *  -. JSP는 서블릿보다 작성 과정이 간단하지만 디버깅은 상대적으로 어렵다.
+ *  
+ * JSP 라이프사이클
+ * 	-. 기본적으로 서블릿과 동일
+ *  -. jspInit()메소드
+ *   	초기화, 오버라이딩
+ *  -. jspDestroy()메소드
+ *  	소멸, 해제, 오버라이딩
+ *  -. _jspService()메소드
+ *      jsp페이지 자신, 오버라이딩 불가능
+ *      
+ *  JSP 파일 저장 위치
+ *   -. JSP는 html과 동일 위치상에 저장 가능
+ *   -. WEB-INF의 하위 폴더에서도 저장 가능
+ *  
+ *  JSP 주요 태그
+ *  	주석		:	<%-- --%> html주석도 사용가능 차이점은? jsp주석은 소스보기에서 안보임
+ *  	지시자	: 	<%@ page %>, <%@ include %>, <%@ taglib %> 첫 줄
+ *  	(directive)
+ *  	스크립팅	:	<%! 멤버 선언 %>, <% 자바 코드 %>, <%= 출력 %>
+ *  	엘리먼트
+ *  	표현식	: ${표현식}
+ *  	커스텀 태그 : JSTL
+ *  
+ *  Page 지시자
+ *  	import="java.util.*"
+ *  	contentType="text/html; charset=UTF-8"	MIME타입과 문자 인코딩 설정
+ *  	session=true (디폴트값은 true)				해당 페이지가 세션을 지원하려면 true
+ *  	errorPage="에러를 처리할 페이지" 
+ *  	isErrorPage="true"	(디폴트값은 false)		이 값이 true일 때 exception내장 객체를 사용 가능  
+ * 		pageEncoding         					JSP페이지의 문자 인코딩을 정의(150-8859-1)
+ * 		isElgnored, isThreadSafe, Language, extends, buffer, autoFlush, info
+ * 
+ * 스크립틀릿
+ * 	JSP페이지내에서 자바 코드를 사용할 수 있도록 한다.
+ *  주의할 점은 스크립틀릿 내의 자바코드와 HTML코드는 분리되어서 처리 되어야 한다.
+ *  스크립틀릿 코드의 남용은 코드에 대한 가독성을 떨어뜨리고 유지보수를 어렵게 한다.
+ *  <%
+ *  	if(age  > 10){
+ *  %>
+ *  		You need a ticket.
+ *  <%
+ *  	}else{
+ *  %>
+ *  		You are free
+ *  <%
+ *  	}
+ *  %>
+ *  표현식
+ *  	Ten is <%= (2 * 5) %>
+ *  	Thank you, <b> <%=name %> </b> for registration
+ *  	The Current day and time is <%= new java.util.Date() %>
+ *  
+ * JSP는 html안에 자바코드 작성 가능 
+ * servlet service메소드를 오버라이딩한 것이 jsp
+ * service메소드 그 자신이 jsp인 것
+ * model2 아키텍처는 servlet는 비즈니스 역할 jsp는 보이는 역할만 하는 것 
+ * spring은 java bins모델 -> getter setter  
+ * 
+ * MVC
+ * Model : User, UserService, UserDao
+ * View : *.view / add_user.jsp
+ * Controller : *.do / AddUserServlet.java(add_user.do)
+ *                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
  * */
