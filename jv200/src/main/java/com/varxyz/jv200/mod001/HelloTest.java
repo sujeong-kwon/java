@@ -129,7 +129,7 @@ public class HelloTest {
  * }
  * throws Exception
  * 
- * 2022-06-20
+ *  ----------------------------------------2022-06-20----------------------------------------------
  * <<interface>>
  * collection
  * - add(Object o)
@@ -149,7 +149,7 @@ public class HelloTest {
  * 
  * customer, customerservice 만듬
  * 
- * 2022-06-21
+ *  ----------------------------------------2022-06-21----------------------------------------------
  * service는 하나만 있으면 됨 -> 특정 어느 하나에 국한되지 않음
  * 모두에게 공통적인 기능 제공
  * 
@@ -233,7 +233,7 @@ public class HelloTest {
  * 새 프로젝트 생성 시
  * pom.xml 수정하기!
  * 
- * 2022-06-24
+ *  ----------------------------------------2022-06-24----------------------------------------------
  * 프로젝트 만들기
  * - Libraies(jdk11.0.15_9)
  * - Compiler 11로 바꾸기
@@ -275,7 +275,7 @@ public class HelloTest {
  * 
  * 프로젝트 아이디어(7/9)
  * 
- * 2022-06-27
+ *  ----------------------------------------2022-06-27----------------------------------------------
  * 조별로 수요일까지 어떤 프로젝트 할 것인지 정하기(요구사항 테스트)
  * 1. 목적 명시
  * 2. 시스템에서 제공하는 기능적 요구사항
@@ -298,7 +298,7 @@ public class HelloTest {
  * PATH
  * %CATALINA_HOME%\bin
  * 
- * 2022-06-28
+ *  ----------------------------------------2022-06-28----------------------------------------------
  * Web / internet
  * HTTP / HTML
  * HTTP / HTML
@@ -373,7 +373,7 @@ public class HelloTest {
  *  web.xml
  *  <url-pattern>/hello.view</url-pattern> .view로 속이는 것 (네이버는 .nhn <- 없는 명칭)
  *  
- *  2022-06-29
+ *  ----------------------------------------2022-06-29----------------------------------------------
  *  Servlet 인터페이스와 서블릿 라이프사이클
  *  	init()/service()/destroy()/getServletConfig()
  *  	1. 요청에 의해 특정 서블릿 호출
@@ -436,7 +436,8 @@ public class HelloTest {
  *  회원가입 폼 작성시, 스크립트나 css 사용가능
  *  체크박스처럼 하나 이상의 값이 전달되는 경우 서블릿에서 파라메터 정보 받는 법
  *   String[] concerns = request.getParameterValues("concerns")
- *   
+ *  
+ * ----------------------------------------2022-06-30-----------------------------------------------
  * JSP (Java Server Page)
  *  -. 사용자를 위한 동적 뷰를 제공한다.
  *  -. 프리젠테이션 코드를 서블릿이 아닌 JSP를 통해 작성함으로써 코드 작성을 간소화
@@ -511,5 +512,69 @@ public class HelloTest {
  * Model : User, UserService, UserDao
  * View : *.view / add_user.jsp
  * Controller : *.do / AddUserServlet.java(add_user.do)
+ * 
+ * ----------------------------------------2022-07-01-----------------------------------------------
+ * MVC 패턴
+ *  -. UI개발자와 비즈니스 개발자와의 분업 개발 제공
+ *  -. 동시 사용자 증가에 따른 시스템 확장성 제공
+ *  -. Low coupling, High cohesion을 통한 시스템 유지 보수의 편리성 제공 ( 낮은 결합도, 높은 응집도 )
+ *  
+ * 모델 2아키텍처
+ *  -. 썬 마이크로시스템의 베스트 가이드 라인
+ *  -. MVC패턴 구현을 위한 베스트 컴포넌트
+ *  	Model	:	(P)Java, Java Beans, EJB (S) DAO, DTO
+ *  	View	:	   HTML, JSP, XML		     Servlet
+ *  	Controller  :  Servlet					 JSP
+ *  
+ * 컨트롤러의 주요 역할
+ * 	서블릿에 의해 구현될 컨트롤러는 다음과 같은 역할을 처리한다.
+ *  -. 클라이언트의 요청 파라메터 정보를 구한다. getParameterValues / getParameterNames
+ *  -. 요청 파라메터에 대한 유효성 검증 및 데이터 변환 작업을 처리한다.
+ *  -. 요청 처리에 필요한 비즈니스 오퍼레이션을 호출한다.
+ *  -. 요청 처리 결과에 따라 클라이언트에게 보여줄 뷰를 선택한다.
+ * 
+ * 서블릿 커뮤니케이션
+ * 	-. 서블릿은 다른 서블릿과 커뮤니케이션이 일반 객체와 달리 제약적이다.
+ *  	-. 사용자가 서블릿 객체를 직접 생성하지 않는다.
+ *  	-. 기본적으로 특정 서비스를 위해 하나의 서블릿 인스턴스를 생성한다.
+ *  -. 따라서 요청 처리를 다른 자원으로 위임할 수 있는 방법이 필요하다.
+ * 
+ * 속성 Scope과 RequestDispatcher
+ * 	-. RequestDispatcher인터페이스는 서블릿에서 다른 페이지로 포워드 할 수 있는 메소드를 제공
+ *  -. 속성 scope은 다른 서블릿(JSP)과 공유해야 할 데이터를 임시적으로 저장할 수 있는 기능을 제공
+ *  -. request, session, application, page
+ *  
+ *     setAttribute(String name, Object obj)
+ *     getAttribute(String name)
+ *     
+ *     -- 서블릿 --
+ *     request.setAttribute("userName", userName);
+ *     RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp")
+ *     dispatcher.forward(request, response);
+ *     
+ *     -- JSP ---
+ *     String userName = (String)request.getAttribute("userName");
+ *     
+ *  request Scope : 요청과 응답사이 
+ *  session Scope : 
+ *  application Scope : 계속 있어야 하는 것
+ *  page Scope : 
+ *  
+ *  오전 프로젝트 발표
+ *  a : 헬스장 시스템
+ *  b : 무인 편의점 POS 시스템
+ *  c : 도서 렌탈 시스템
+ *  d : 여기 맞줘 맛집 추천?
+ *  e : 주차장 정보 안내 시스템
+ *  f : 나의 편지 시스템 -> 그림 판매 시스템(지역사회 예술가, 화가 후원 커뮤니티 생성 -> -> 그림 굿즈 생성)
+ *  
+ *  
+ *  비전?
+ *  타겟?
+ *  사용자?
+ *  제공하는 것?
+ *  누가 이 시스템을 구입해서 사용하는 가?
+ *  주차 +알파 필요 
+ *  
  *                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
  * */

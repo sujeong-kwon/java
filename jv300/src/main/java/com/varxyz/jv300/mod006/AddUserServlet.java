@@ -64,13 +64,21 @@ public class AddUserServlet extends HttpServlet {
 		user.setAddr(addr1 + " " + addr2);
 		
 		// 3. 비즈니스 서비스 호출
-		System.out.println(user);
-		UserService.getInstance();
+		userService = new UserService();
+//		UserService.getInstance();
 		userService.addUser(user);
-		
 		// 4. NextPage
+		request.setAttribute("userId", userId);
+		request.setAttribute("passwd", passwd);
+		request.setAttribute("userName", userName);
+		request.setAttribute("ssn", ssn);
+		request.setAttribute("email1", email1);
+		request.setAttribute("email2", email2);
+		request.setAttribute("addr1", addr1);
+		request.setAttribute("addr2", addr2);
 		dispatcher = request.getRequestDispatcher("/success/success.jsp");
 		dispatcher.forward(request, response);
+	
 		
 	}
 

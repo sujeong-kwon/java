@@ -6,6 +6,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h3>Error</h3>
+	<h3>회원가입에 실패했습니다.</h3>
 </body>
 </html>

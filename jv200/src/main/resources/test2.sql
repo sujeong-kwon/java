@@ -1,9 +1,7 @@
-INSERT INTO Customer (name, ssn) VALUES ('James Bond', '900101-1234567');
+create user 'too_much_talkers'@localhost identified by 'strong_typing_and_loud laughter';
 
-INSERT INTO Account (accType, balance, interestRate, overdraftAmount, customerId) VALUES ('C', 2000.0, 0.03, 0.0, 1001);
+create database noisyclass default character set utf8mb4;
 
-UPDATE Customer SET name='Jason Bourne' WHERE cid=1002;
+grant all privileges on noisyclass.* to 'too_much_talkers'@localhost with grant option;
 
-DELETE FROM Customer WHERE cid=1002;
-
-SELECT accType, balance FROM Account WHERE aid=3001;
+SELECT COUNT(m.id) FROM MenuItem m INNER JOIN MenuCategory c ON m.id = c.cateId WHERE c.cateId = ?;
