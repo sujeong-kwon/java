@@ -550,15 +550,20 @@ public class HelloTest {
  *     -- 서블릿 --
  *     request.setAttribute("userName", userName);
  *     RequestDispatcher dispatcher = request.getRequestDispatcher("success.jsp")
- *     dispatcher.forward(request, response);
+ *     dispatcher.forward(request, response); // 화면은 결과 url은 호출한 쪽의 주소 sendRedirect는 결과쪽 주소
+ *     
+ *     request.setAttribute("userName", userName);
+ *     response.sendRedirect("success.jsp"); // 주소변화, request scope 종료
  *     
  *     -- JSP ---
  *     String userName = (String)request.getAttribute("userName");
  *     
+ * <%@ page import="" session="" errorPage="" isErrorPage="" contentType="" pageEncodig=""%>
+ *     
  *  request Scope : 요청과 응답사이 
- *  session Scope : 
- *  application Scope : 계속 있어야 하는 것
- *  page Scope : 
+ *  session Scope : ex) 장바구니 / 여러번 호출 
+ *  application Scope : ex) 모든 사용자에게 유용하게 사용되어야 하는 데이터 / 계속 있어야 하는 것
+ *  page Scope : 잘 쓰지 x, 서블릿에서 안씀 JSP에서 사용
  *  
  *  오전 프로젝트 발표
  *  a : 헬스장 시스템
@@ -576,5 +581,238 @@ public class HelloTest {
  *  누가 이 시스템을 구입해서 사용하는 가?
  *  주차 +알파 필요 
  *  
- *                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
+ *----------------------------------------2022-07-04-----------------------------------------------
+ * 자바빈즈(Java Beans)
+ * 	Bean이란 재사용과 같은 어떤 목적을 가지고 지정된 규칙에 따라 만들어진 클래스 혹은 컴포넌트 (클래스 -> 재사용 목적으로 만들 때, 빈규약에 따를 때)
+ *  규약
+ *  	-. 빈은 인자가 없는 생성자를 가져야 한다.
+ *  	-. 빈은 프로퍼티에 대한 네이밍 규칙을 준수해야 한다. (ex. setter getter 합친 것 = 프로퍼티)
+ *  	-. 설정(setter) 메소드의 아규먼트의 접근(getter)메소드의 리턴타입은 동일해야 한다.
+ *  	   public void setName(String name);
+ *         public String getName();
+ * 		   public void setFemale(boolean female);
+ *         public boolean isFemale();
+ *      -. 빈의 영속성을 위해 Serializable 또는 Externailizable 인터페이스를 구현할 수 있다.
+ *   	-. 캡슐화를 유지한다. method public 멤버변수 private
+ * 
+ * JSP 표준 액션
+ * 		-. JSP는 다양한 표준 액션 태그를 제공한다.
+ * 		-. 빈 관련 JSP 표준 액션 태그
+ * 			-. 자바 빈즈를 JSP페이지에서 좀 더 쉽게 사용할 수 있도록 제공된 태그
+ * 			-. <jsp:useBean>, <jsp:setProperty>, <jsp:getProperty>,
+ * 			   <jsp:include>, <jsp:forward>, <jsp:param>
+ * 			-. <jsp:useBean id="user"
+ * 							class="com.varxyz.jv300.domain.User"
+ * 							scope="request" />
+ * 				id: 빈속성명, 구분자
+ * 				class: 해당 빈에 대한 완전한 클래스명 (추상클래스 x)
+ * 				scope: [page(default) | request | session | application]
+ *				type: 빈 참조타입(폴리모피즘 적용시 부모타입 명시)
+ *
+ *				<jsp:useBean id="emp"
+ * 							 class="com.varxyz.jv300.domain.Manager"
+ * 							 scope="request" />
+ * 							 type="com.varxyz.jv300.domain.Employee" />
+ * 				
+ * 				<jsp:setProperty name="user" property="userId" />
+ * 					 name = "자바 빈이름(<jsp:useBean>의 id속성과 동일명)"
+ * 					 property= "빈의 set프로퍼티명"
+ * 
+ * 				case 1)
+ * 					<jsp:useBean id="user"
+ * 							 class="com.varxyz.jv300.domain.User"
+ * 							 scope="request" />
+ * 					<jsp:setProperty name="user" property="userId"/>
+ * 
+ * 				case 2) 신규로 생성될 때만 몸체 처리
+ * 			 		<jsp:useBean id="user"
+ * 							 class="com.varxyz.jv300.domain.User"
+ * 							 scope="request" />
+ * 					<jsp:setProperty name="user" property="userId"/>
+ * 					</jsp:useBean>
+ * 
+ * 				<%
+ * 					user.setUserId(request.getParameter("userId"));
+ * 				%>
+ * 				
+ * 				<jsp:setProperty name="user" property="userId"
+ * 					value="<%= request.getParameter("userId") %>"/>
+ * 
+ * 				<jsp:setProperty name="user" property="userId" param="userId"/>
+ * 				이 때 주의할 것 은 param과 value의 경우 빈타입이 String 또는 Primitive타입
+ * 				
+ * 				<jsp:setProperty name="user" property="*"/>
+ * 
+ * 				<jsp:getProperty> 태그
+ * 					빈이 가지고 있는 프로퍼티 값을 JSP페이지에 출력할 때 사용
+ * 					<jsp:getProperty name="user" property="userId"/>
+ * 
+ * 				<jsp:include> 태그
+ * 					현재 JSP페이지내에 지정된 페이지를 포함시킨다.
+ * 					<jsp:include page="/incl/banner.jsp" />
+ * 					cf) <%@ include file="..." %>
+ * 
+ * 				<jsp:include>				<%@include>
+ * 				실행시점에 페이지에 포함			변환시점에 페이지에 포함
+ *  			수정시 자동 업데이트 제공			수정시 자동 업데이트가 안됨
+ *				정적컨텐츠, JSP, CGI포함가능 		정적컨텐츠, JSP만 가능
+ *				표현식을 통해 page속성 지정 가능	표현식을 통한 page속성 지정 불가능
+ *				매개변수 추가 가능
+ *
+ * jsp에서는 forward를 잘 안쓰고 servlet에서는 include를 잘 안씀
+ * 				
+ * 				<jsp:param>
+ * 				
+ * 				-mypage1.jsp-
+ * 				<jsp:include page="header.jsp">
+ * 					<jsp:param name="subtitle" value="Welcome to varxyz"/>
+ * 				</jsp:include>
+ * 				
+ * 				-header.jsp-
+ * 				<img src="">${param.subtitle}
+ * 
+ * EL (Expression Language)
+ * 		-. Since JSP2.0 스펙에서 EL추가
+ * 		-. EL은 크게 두가지 형태로 사용
+ * 			-. 커스텀 태그나 액션 태그의 속성값으로 사용
+ * 			-. JSP페이지내에서 텍스트 출력시 사용
+ *		-. Syntax : ${addr.city}, ${user.userId}
+ *
+ *		JSP액션태그에서
+ *			<jsp:include page="/user/${user.id}/details.jsp"/> => /user/java/details.jsp
+ *		HTML 출력시
+ *			<h3>Welcome! ${user.userName}님 </h3> => <h3> Welcome 유비님 </h3>
+ *		커스텀 태그 속성값으로
+ *			<c:set var="name" value="${user.userName}" />
+ *
+ *		${left.right}
+ *			left : EL 내장객체, 자바 빈, Map 중의 하나
+ *			right : 빈의 경우 프로퍼티, Map의 경우 key
+ *
+ *			${user.userId} = ${user["userId"]}
+ *			${requestScope.user.userId} // requestScope은 EL 내장객체
+ *			// 맵
+ *			${nationMap.kr} = ${nationMap["kr"]}
+ *			${header.host} = ${header["host"]}
+ *			// 배열
+ *			${nations[0]} = ${nations["0"]}
+ *			// List 처리
+ *			=> Servlet
+ *				List<String> hobbies = new ArrayList<String>();
+ *				hobbies.add("travel");
+ *				hobbies.add("drive");
+ *				request.setAttribute("hobbies", hobbies);		
+ *				
+ *				Map<String, String> teachers = new HashMap<String, String>();
+ *				teachers.put("java", "유비");
+ *
+ *				request.setAttribute("hobbies", hobbies);
+ *				request.setAttribute("teachers" teachers);
+ *	
+ *			=> JSP 
+ *				Your first hobby is ${hobbies[0]}
+ *				Your Java teacher is ${teacher["java"]}
+ * EL 내장 객체
+ *		-. pageScope / requestScope / sessionScope / applicationScope
+ *		-. param ex) ${param.userName}
+ *		-. paramValues ex) ${paramValues.fruit[0]}
+ *		-. header / headerValues
+ *		-. cookie ex) ${cookie.userName.value}
+ *				  	=> if(cookie[i].getName().equals("userName")){
+ *							out.println(cookie[i].getValue());
+ *						}
+ *
+ * 		-. initParam
+ * 		-. pageContext ex) ${pageContext.request.method} = ${requestScope.method}
+ * 
+ * EL 연산
+ * 		-. ${ 1 + 2 * 4 } => 9
+ * 		-. ${ "1" + 10 } => 11
+ * 		-. ${ null + 1 } => 1
+ * 		-. ${ 3 div 4 } => 0.75
+ * 		-. ${ 3 / 2 } => 1.5
+ * 		-. ${ 32 % 10 } => 2
+ * 		-. ==, eq
+ * 		-. !=, ne
+ * 		-. ${empty someVar}
+ * 			 someVar 빈 객체인지 여부를 검사
+ * 		     true : null, "", 길이0,
+ *  
+ * 		-. null값에 대한 EL처리 방법
+ * 			-. 속성/프로퍼티가 존재하지 않을 경우 에러 대신 그 부분에 어떤 내용도 출력하지 않는다.
+ * 			-. 논리연산에 null값은 false로 처리한다.
+ * 		
+ * 		-. EL2.2부터 객체의 메소드를 호출할 수 있다.
+ * 			${x.doSomething()} => JSP 2.1이전버전에서는 컴파일에러
+ * 
+ * 		<%
+ * 			Calculator calc = new Calculaor();
+ * 			request.setAttribute("calc", calc);
+ * 		%>
+ * 		${calc.setAdd(1, 3)}
+ * 		${calc.getAdd()}
+ * 
+ * JSTL과 커스텀 태그
+ *   JSTL은 표준 태그 라이브러리(Standrad Tag Library)로서 커스텀 태그 중에서
+ *   많이 사용하는 것들을 모다 JSTL 규약을 만드었다.
+ *
+ * 	 JSTL을 사용함으로써 스크립트 코드를 사용할 떄보다 간결하고 이해하기 쉬운
+ * 	 JSP코드를 작성할 수 있다.
+ * 
+ *	 커스텀 태그는 사용자가 직접 개발한 사용자 정의 태그로서 특정 업무나 기능을  가진 태그를 개발자가 직접 커스터마이징 할  수 있다.                                                                                           
+* 
+* 특징
+* 	JSP에서 자바코드를 제거할 수 있다.
+* 	커스텀 태그는 재사용이 가능하다.
+* 	코드에 대한 가독성과 유지보수가 쉽다.
+* 	XML기반의 태그 형식
+* 	다양한 커스텀 태그 라이브러리 제공
+* 
+* JSTL 태그의 종류
+* 	코어라이브러리 : 변수지원, 흐름제어, URL처리 (접두어 : c)
+* 	XML라이브러리 : XML 제어, 변환 (접두어 : x)
+* 	국제화라이브러리 : 지역, 메세지, 숫자, 날짜 형식 (접두어 : fmt)
+* 	데이터베이스라이브러리 : SQL (접두어 : sql)
+* 	함수라이브러리 : 컬렉션, String  처리 (접두어 : fn)
+* 
+* JSTL 코어 라이브러리
+* 	set / if / forEach / url /out
+* 
+* set태그
+* 	EL변수의 값이나 EL변수의 프로퍼티 값을 지정할 때 사용
+* 
+* 	<c:set var="pageTitle">회원가입</c:set>
+* 	
+* 	<html>
+* 		<head><title>${pageTitle}</title></head>
+* 		...
+* 	</html>
+* 
+* if태그
+* 	자바의 if블록과 유사한 기능을 제공한다.
+* 	<c:if test="조건식"> 조건이 참일 경우 실행코드 </c:if>
+* 	<c:if test="${not empty errorMsgs}">에러처리를 여기서 </c:if>
+* 
+* forEach 태그
+* 	배열, 컬렉션, 맵의 데이터를 순차적으로 처리할 때 사용한다.
+* 	<c:forEach var="message" items="${errorMsgs}">
+* 		<li>${message}</li>
+* 	</c:forEach>
+* 
+* 	<c:forEach var="num" begin="1" end="10">
+* 		${num} -> 1부터 10까지 값 출력
+* 	</c:forEach>
+* 
+* url태그
+* 	컨텍스트 경로를 포함한 URL을 생성해 준다.
+* 	value 속성은 절대경로/상대경로 모두 가능
+* 	<form action='<c:url value="add_user.do"/>' method="post">
+* 	<form action='/add_user.do' method="post">
+* 
+* out태그
+* 	-. 데이터를 출력할 때 사용되는 태그로서 특수문자를 변경할 수 있는 기능을 제공한다.
+* 	<c:out value:"${param.email}" default="no email provided" escapeXml="true"/>
+ *	<c:out ...>출력내용</c:out>
+ *
+ *			                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
  * */
