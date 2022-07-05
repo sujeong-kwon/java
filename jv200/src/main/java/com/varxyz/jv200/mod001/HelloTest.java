@@ -581,7 +581,7 @@ public class HelloTest {
  *  누가 이 시스템을 구입해서 사용하는 가?
  *  주차 +알파 필요 
  *  
- *----------------------------------------2022-07-04-----------------------------------------------
+ *----------------------------------------2022-07-04------------------------------------------------
  * 자바빈즈(Java Beans)
  * 	Bean이란 재사용과 같은 어떤 목적을 가지고 지정된 규칙에 따라 만들어진 클래스 혹은 컴포넌트 (클래스 -> 재사용 목적으로 만들 때, 빈규약에 따를 때)
  *  규약
@@ -753,6 +753,8 @@ public class HelloTest {
  * 		${calc.getAdd()}
  * 
  * JSTL과 커스텀 태그
+ * 	 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+ * 
  *   JSTL은 표준 태그 라이브러리(Standrad Tag Library)로서 커스텀 태그 중에서
  *   많이 사용하는 것들을 모다 JSTL 규약을 만드었다.
  *
@@ -760,59 +762,72 @@ public class HelloTest {
  * 	 JSP코드를 작성할 수 있다.
  * 
  *	 커스텀 태그는 사용자가 직접 개발한 사용자 정의 태그로서 특정 업무나 기능을  가진 태그를 개발자가 직접 커스터마이징 할  수 있다.                                                                                           
-* 
-* 특징
-* 	JSP에서 자바코드를 제거할 수 있다.
-* 	커스텀 태그는 재사용이 가능하다.
-* 	코드에 대한 가독성과 유지보수가 쉽다.
-* 	XML기반의 태그 형식
-* 	다양한 커스텀 태그 라이브러리 제공
-* 
-* JSTL 태그의 종류
-* 	코어라이브러리 : 변수지원, 흐름제어, URL처리 (접두어 : c)
-* 	XML라이브러리 : XML 제어, 변환 (접두어 : x)
-* 	국제화라이브러리 : 지역, 메세지, 숫자, 날짜 형식 (접두어 : fmt)
-* 	데이터베이스라이브러리 : SQL (접두어 : sql)
-* 	함수라이브러리 : 컬렉션, String  처리 (접두어 : fn)
-* 
-* JSTL 코어 라이브러리
-* 	set / if / forEach / url /out
-* 
-* set태그
-* 	EL변수의 값이나 EL변수의 프로퍼티 값을 지정할 때 사용
-* 
-* 	<c:set var="pageTitle">회원가입</c:set>
-* 	
-* 	<html>
-* 		<head><title>${pageTitle}</title></head>
-* 		...
-* 	</html>
-* 
-* if태그
-* 	자바의 if블록과 유사한 기능을 제공한다.
-* 	<c:if test="조건식"> 조건이 참일 경우 실행코드 </c:if>
-* 	<c:if test="${not empty errorMsgs}">에러처리를 여기서 </c:if>
-* 
-* forEach 태그
-* 	배열, 컬렉션, 맵의 데이터를 순차적으로 처리할 때 사용한다.
-* 	<c:forEach var="message" items="${errorMsgs}">
-* 		<li>${message}</li>
-* 	</c:forEach>
-* 
-* 	<c:forEach var="num" begin="1" end="10">
-* 		${num} -> 1부터 10까지 값 출력
-* 	</c:forEach>
-* 
-* url태그
-* 	컨텍스트 경로를 포함한 URL을 생성해 준다.
-* 	value 속성은 절대경로/상대경로 모두 가능
-* 	<form action='<c:url value="add_user.do"/>' method="post">
-* 	<form action='/add_user.do' method="post">
-* 
-* out태그
-* 	-. 데이터를 출력할 때 사용되는 태그로서 특수문자를 변경할 수 있는 기능을 제공한다.
-* 	<c:out value:"${param.email}" default="no email provided" escapeXml="true"/>
+ * 
+ * 특징
+ * 	JSP에서 자바코드를 제거할 수 있다.
+ * 	커스텀 태그는 재사용이 가능하다.
+ * 	코드에 대한 가독성과 유지보수가 쉽다.
+ * 	XML기반의 태그 형식
+ * 	다양한 커스텀 태그 라이브러리 제공
+ * 
+ * JSTL 태그의 종류
+ * 	코어라이브러리 : 변수지원, 흐름제어, URL처리 (접두어 : c)
+ * 	XML라이브러리 : XML 제어, 변환 (접두어 : x)
+ * 	국제화라이브러리 : 지역, 메세지, 숫자, 날짜 형식 (접두어 : fmt)
+ * 	데이터베이스라이브러리 : SQL (접두어 : sql)
+ * 	함수라이브러리 : 컬렉션, String  처리 (접두어 : fn)
+ * 
+ * JSTL 코어 라이브러리
+ * 	set / if / forEach / url /out
+ * 
+ * set태그
+ * 	EL변수의 값이나 EL변수의 프로퍼티 값을 지정할 때 사용
+ * 
+ * 	<c:set var="pageTitle">회원가입</c:set>
+ * 	
+ * 	<html>
+ * 		<head><title>${pageTitle}</title></head>
+ * 		...
+ * 	</html>
+ * 
+ * if태그
+ * 	자바의 if블록과 유사한 기능을 제공한다.
+ * 	<c:if test="조건식"> 조건이 참일 경우 실행코드 </c:if>
+ * 	<c:if test="${not empty errorMsgs}">에러처리를 여기서 </c:if>
+ * 
+ * forEach 태그
+ * 	배열, 컬렉션, 맵의 데이터를 순차적으로 처리할 때 사용한다.
+ * 	<c:forEach var="message" items="${errorMsgs}">
+ * 		<li>${message}</li>
+ * 	</c:forEach>
+ * 
+ * 	<c:forEach var="num" begin="1" end="10">
+ * 		${num} -> 1부터 10까지 값 출력
+ * 	</c:forEach>
+ * 
+ * url태그
+ * 	컨텍스트 경로를 포함한 URL을 생성해 준다.
+ * 	value 속성은 절대경로/상대경로 모두 가능
+ * 	<form action='<c:url value="add_user.do"/>' method="post">
+ * 	<form action='/add_user.do' method="post">
+ * 
+ * out태그
+ * 	-. 데이터를 출력할 때 사용되는 태그로서 특수문자를 변경할 수 있는 기능을 제공한다.
+ * 	<c:out value:"${param.email}" default="no email provided" escapeXml="true"/>
  *	<c:out ...>출력내용</c:out>
  *
- *			                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+ * ----------------------------------------2022-07-05-----------------------------------------------
+ * web context = servlet context
+ * web context는 결국 웹 애플리케이션 그 자체와 동일
+ * 웹 애플리케이션이 존재한다는 것은 결국 톰캣이 실행되는 것
+ * <웹 컨테이너는 웹 어플리케이션(컨텍스트)이 시작되거나 종료되는 시점에 특정 클래스의 메서드를 실행할 수 있는 기능을 제공하고 있다. 
+ * 이 기능을 사용하면 웹 어플리케이션을 실행할 때 필요한 초기화 작업이나 웹 어플리케이션이 종료된 후 사용한 자원을 반환하는 등의
+ * 작업을 수행할 수 있다.>
+ * 
+ * ServletContextEvent를 ServletContextListener가 감지
+ * 
+ * 유스케이스 목록은 다이어그램으로 대체
+ * 
+ * 
+ * 			                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
  * */

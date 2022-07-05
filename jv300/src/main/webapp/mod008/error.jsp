@@ -26,25 +26,21 @@
 		</jsp:include>
 	</div>	
 	<div id="content-header">
-		<h3>회원가입에 실패했습니다.</h3>
-		<%-- 
-		<ul>
-<%
-		@SuppressWarnings("unchecked")
-		List<String> errorMsgs = (List<String>)request.getAttribute("errorMsgs");
-		for(String errorMsg : errorMsgs){
-%>
-		<li><%=errorMsg %></li>	
-<%
-		}
-%>
-		</ul>
-		--%>
-		<ul>
-		<c:forEach var="message" items="${errorMsgs}">
-	 		<li>${message}</li>
-		</c:forEach>
-		</ul>
+		<c:if test="${not empty errorMsgs }">
+			<h3>회원가입에 실패했습니다.</h3>
+			<ul>
+				<c:forEach var="errorMsg" items="${errorMsgs}">
+			 		<li>${errorMsg}</li>
+				</c:forEach>
+				<%--
+				if else 문 
+				<c:when test="">
+					<c:choose></c:choose>  // true일 때
+					<c:otherwise></c:otherwise> // false일 때
+				</c:when>	
+				 --%>	
+			</ul>
+		</c:if>
 	</div>
 	<div id="footer">
 		<%@ include file="/incl/footer.jsp" %>
