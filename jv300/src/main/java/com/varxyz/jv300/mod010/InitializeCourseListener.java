@@ -33,7 +33,6 @@ public class InitializeCourseListener implements ServletContextListener {
 			}
 			context.setAttribute("contentList", contentList); // 서버가 shutdown될 때까지 존재
 			System.out.println("The course contents has been loaded");
-			System.out.println(contentList);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}

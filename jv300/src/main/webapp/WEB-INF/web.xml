@@ -4,29 +4,12 @@
        xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
        version="3.1">
 	<display-name>Archetype Created Web Application</display-name>
-	<listener>
-		<listener-class>com.varxyz.jv300.mod009.InitializeCourseListener</listener-class>
-	</listener>
-	<listener>
-		<listener-class>com.varxyz.jv300.mod010.InitializeDataSource</listener-class>
-	</listener>
 	<servlet>
      <servlet-name>LifeCycleTestServlet</servlet-name>
      <servlet-class>com.varxyz.jv300.mod003.LifeCycleTestServlet</servlet-class>
   	</servlet>
-	<servlet>
-		<description>
-		</description>
-		<display-name>InitializeDataSource</display-name>
-		<servlet-name>InitializeDataSource</servlet-name>
-		<servlet-class>com.varxyz.jv300.mod010.InitializeDataSource</servlet-class>
-	</servlet>
   	<servlet-mapping>
      <servlet-name>LifeCycleTestServlet</servlet-name>
      <url-pattern>/lifecycle.view</url-pattern>
-  	</servlet-mapping>
-  	<servlet-mapping>
-  		<servlet-name>InitializeDataSource</servlet-name>
-  		<url-pattern>/InitializeDataSource</url-pattern>
   	</servlet-mapping>
 </web-app>

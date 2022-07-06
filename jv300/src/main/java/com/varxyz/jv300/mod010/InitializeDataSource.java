@@ -1,26 +1,44 @@
 package com.varxyz.jv300.mod010;
 
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.util.Properties;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
+@WebListener
 public class InitializeDataSource implements ServletContextListener {
-	// 1. 파일 읽기(jdbc.properties)
-	// 2. DataSource
-	// 3. servletContext.setAttribute("", );
-	@Override
-    public void contextInitialized(ServletContextEvent event)  { 
-		
+   private static final String JDBC_FILE_PATH = "/WEB-INF/classes/jdbc.properties";
+   @Override
+   public void contextInitialized(ServletContextEvent event)  { 
+        ServletContext context = event.getServletContext();
+        InputStream is = null;
+        try {
+           is = context.getResourceAsStream(JDBC_FILE_PATH);
+           Properties prop = new Properties();
+           prop.load(is);
+           String jdbcDriver = prop.getProperty("jdbc.driver");
+           String jdbcUrl = prop.getProperty("jdbc.url");
+           String userName = prop.getProperty("jdbc.username");
+           String password = prop.getProperty("jdbc.password");
+           DataSource dataSource = new DataSource(jdbcDriver, jdbcUrl, 
+                                      userName, password);
+           NamingService namingService = NamingService.getInstance();
+           namingService.setAttribute("dataSource", dataSource);
+           System.out.println("DataSource has been initilized.");
+
+        } catch(Exception e) {
+           e.printStackTrace();
+        }
+   }
+   
+   @Override
+    public void contextDestroyed(ServletContextEvent event)  {  
+       System.out.println("contextDestroyed() 메서드 작동");
     }
-	
-	@Override
-    public void contextDestroyed(ServletContextEvent event)  { 
-		
-    }   
 }

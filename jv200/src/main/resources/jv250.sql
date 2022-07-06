@@ -74,4 +74,22 @@ ALTER TABLE Customer CHANGE customerId userId VARCHAR(16) NOT NULL;
 
 SELECT a.aid, a.accountNum, a.balance, a.interestRate, a.overdraft, a.accountType, c.name, c.ssn, c.phone, a.regDate FROM Account a INNER JOIN Customer c ON a.customerId = c.cid WHERE c.ssn = ?
 
+show tables;
+
+drop table User;
+
+CREATE TABLE User (
+	uid			BIGINT			PRIMARY KEY AUTO_INCREMENT,		
+	userId		VARCHAR(16)		NOT NULL,
+	passwd		VARCHAR(16)		NOT NULL,
+	userName	VARCHAR(20)		NOT NULL,
+	email		VARCHAR(20)		NOT NULL,
+	ssn			VARCHAR(20)		NOT NULL,
+	addr		VARCHAR(20)		NOT NULL,
+	regDate		TIMESTAMP		NOT NULL	DEFAULT CURRENT_TIMESTAMP
+) AUTO_INCREMENT = 1001;
+
+select * from User;
+
+INSERT INTO User (userId, passwd, userName, ssn, email, addr) VALUES ("example1", "abc1234", "길동", "991213-2222222", "exam@gmail.com", "비슬로 2141 공공빌라 102호");
 				
