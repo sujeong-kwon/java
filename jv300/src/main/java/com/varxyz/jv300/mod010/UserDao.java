@@ -48,7 +48,6 @@ public class UserDao {
 				con = ds.getConnection();
 				psmt = con.prepareStatement(sql);
 				rs = psmt.executeQuery();
-				int i = 1;
 				while(rs.next()) {
 					User c = new User();
 					c.setUid(rs.getLong("uid"));

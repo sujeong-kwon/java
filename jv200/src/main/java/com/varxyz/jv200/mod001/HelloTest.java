@@ -833,5 +833,41 @@ public class HelloTest {
  * 수강생 - 수강신청 - 강좌
  * ex) Student 속성리스트, 오퍼레이션 리스트
  * 도메인
- * 		                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+ * 
+ * ----------------------------------------2022-07-07-----------------------------------------------
+ * 세션 관리( Session Management)
+ * 	-. HTTP프로토콜은 stateless 프로토콜
+ *  -. 특정 사용자에 대한 상태 정보를 저장해야 할 경우 문제 대두
+ *  -. 세션이란 여러 HTTP요청들 간에 특정 클라이언트 정보를 저장 유지하는 메커니즘
+ * 	-. 웹 컨테이너 벤더는 세션 유지와 관련된 지원을 반드시 제공 (html의 hidden form 사용 단점은 모든 페이지에 form를 사용해야
+ * 	   한다는 것 그래서 나타난 것이 cookie(문자로 만들어진 토큰값))
+ * 
+ * 세션(Session)
+ * 	-. 세션 정보(객체)는 요청 객체로 부터 획득 가능
+ *  -. Http session = request.getSession
+ *  -  세션 객체는 여러개의 특징 정보를 저장, 검색할 수 있는 메소드를 제공한다
+ *     ex) session.setAttribute("myCart" cart);
+ * 
+ * Session 생성
+ * 	HttpSession getSession();
+ * 	HttpSession getSession(boolean flag);
+ * 
+ * Session 제거
+ *  void invalidate();	// 서블릿
+ *  
+ *  <session-config>    // web.xml
+ *  	<session-timeout>30</session-timeout>
+ *  </session-config>
+ *  
+ *  쿠키(Cookie)란?
+ *   -. 쿠키는 세션을 지원하기 위해 고안된 것으로 일종의 문자 데이터
+ *   -. 요청에 대한 응답 과정에서 클라이언트 장치(ex:브라우저)에 저장할 수 있는 정보
+ *   -. 클라이언트의 브라우저 종료시 쿠키 정보는 기본적으로 삭제된다.
+ *   -. 서버와 클라이언트는 요청-응답 과정에서 쿠키(이름/값)를 교환
+ *   -. 콤마, 세미콜론, 공백은 포함할 수 없다.
+ *   -. $로 시작할 수 없다.
+ *   -. setMaxAge(60 * 30)
+ *   -. URLEncoder.encode("서울", " UTF-8")
+ *   
+ *  forward와 sendredirect                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
  * */
