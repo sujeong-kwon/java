@@ -13,9 +13,21 @@ import javax.servlet.http.HttpServletResponse;
 public class ModifyUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserService userService;
+	private User user;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		System.out.println("진입");
+		String aa = request.getParameter("uid");
+		System.out.println(aa);
+		userService = new UserService();
+		Long uId = Long.valueOf(aa);
+		user = userService.getUser(uId);
+		System.out.println(user);
+		System.out.println(user.getUserName());
+		request.setAttribute("user", user);
+		RequestDispatcher dispatcher = null;
+		dispatcher = request.getRequestDispatcher("modify_user.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,11 +36,10 @@ public class ModifyUserServlet extends HttpServlet {
 		String userId = request.getParameter("userId");
 		String passwd = request.getParameter("passwd");
 		String userName = request.getParameter("userName");
-		String email1 = request.getParameter("email1");
-		String email2 = request.getParameter("email2");
 		String ssn = request.getParameter("ssn");
-		String addr1 = request.getParameter("addr1");
-		String addr2 = request.getParameter("addr2");
+		String email = request.getParameter("email");
+		String addr = request.getParameter("addr");
+		String uid = request.getParameter("uid");
 		
 		UserDao userDao = new UserDao();
 		
@@ -37,19 +48,16 @@ public class ModifyUserServlet extends HttpServlet {
 		user.setPasswd(passwd);
 		user.setUserName(userName);
 		user.setSsn(ssn);
-		user.setEmail(email1 + "@" + email2);
-		user.setAddr(addr1 + " " + addr2);
+		user.setEmail(email);
+		user.setAddr(addr);
+		user.setUid(Long.valueOf(uid));
 		
 		userService = new UserService(userDao);
 		userService.updateUser(user);
 		
 		request.setAttribute("user", user);
 		RequestDispatcher dispatcher = null;
-		dispatcher = request.getRequestDispatcher("modify_user.jsp");
+		dispatcher = request.getRequestDispatcher("update_success.jsp");
 		dispatcher.forward(request, response);
-		
-		
-		
 	}
-
 }

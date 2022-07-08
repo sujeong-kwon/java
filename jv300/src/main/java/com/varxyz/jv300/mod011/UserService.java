@@ -27,9 +27,11 @@ public class UserService {
 		return userDao.findAll();	
 	}
 	
+	public User getUser(Long uId) {
+		return userDao.findUser(uId);
+	}
+	
 	public boolean isValidUser(String userId, String passwd) {
 		return userDao.findUserByIdPw(userId, passwd);
 	}
-	
-	
 }

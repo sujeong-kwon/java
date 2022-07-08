@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
-@WebServlet({"/mod011/add_user.do"})
+@WebServlet("/mod011/add_user.do")
 public class AddUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UserService userService;

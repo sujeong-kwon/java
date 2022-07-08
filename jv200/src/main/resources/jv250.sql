@@ -94,3 +94,5 @@ select * from User;
 INSERT INTO User (userId, passwd, userName, ssn, email, addr) VALUES ("example1", "abc1234", "길동", "991213-2222222", "exam@gmail.com", "비슬로 2141 공공빌라 102호");
 
 SELECT * FROM User WHERE userId = "pcn2930" AND passwd = "22222";
+
+UPDATE User SET userId = "hee", passwd = "1234", userName = "고양이", ssn = "12345455", email = "eexd124", addr = "dd동" WHERE uid = 1001;

@@ -17,7 +17,7 @@ public class UserDao {
 	}
 
 	public void addUser(User user) {
-		String sql = "INSERT INTO User (userId, passwd, userName, ssn, email, addr) " 
+		String sql = "INSERT INTO User (userId, passwd, userName, ssn, email, addr)" 
 				+ " VALUES (?, ?, ?, ?, ?, ?);";
 		try {
 			Connection con = ds.getConnection();
@@ -66,6 +66,37 @@ public class UserDao {
 		return userList;
 	}
 	
+
+	public User findUser(Long uId) {
+		String sql = "SELECT * FROM User WHERE uid = ?";
+		User user = new User();
+		try {
+			Connection con = null;
+			PreparedStatement psmt = null;
+			ResultSet rs = null;
+			try {
+				con = ds.getConnection();
+				psmt = con.prepareStatement(sql);
+				psmt.setLong(1, uId);
+				rs = psmt.executeQuery();
+				while(rs.next()) {
+				user.setUid(rs.getLong("uid"));
+				user.setUserId(rs.getString("userId"));
+				user.setPasswd(rs.getString("passwd"));
+				user.setUserName(rs.getString("userName"));
+				user.setSsn(rs.getString("ssn"));
+				user.setEmail(rs.getString("email"));
+				user.setAddr(rs.getString("addr"));
+				}
+			}finally {
+				ds.close(rs, psmt, con);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return user;
+	}
+	
 	public boolean findUserByIdPw(String userId, String passwd) {
 		String sql = "SELECT * FROM User WHERE userId = ? AND passwd = ?";
 		int i = 0;
@@ -92,7 +123,28 @@ public class UserDao {
 	}
 
 	public void updateUser(User user) {
-		String sql = "UPDATE * FROM WHERE userId = ?";
-		
+		String sql = "UPDATE User SET userId = ?, passwd = ?, userName = ?, ssn = ?, email = ?, addr = ? WHERE uid = ?";
+		try {
+			Connection con = null;
+			PreparedStatement psmt = null;
+			try {
+				con = ds.getConnection();
+				psmt = con.prepareStatement(sql);
+				psmt.setString(1, user.getUserId());
+				psmt.setString(2, user.getPasswd());
+				psmt.setString(3, user.getUserName());
+				psmt.setString(4, user.getSsn());
+				psmt.setString(5, user.getEmail());
+				psmt.setString(6, user.getAddr());
+				psmt.setLong(7, user.getUid());
+				psmt.executeUpdate();
+				System.out.println("UPDATED...");
+			}finally {
+				ds.close(psmt, con);
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
 	}
+
 }

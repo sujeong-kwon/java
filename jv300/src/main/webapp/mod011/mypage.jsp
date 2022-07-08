@@ -10,5 +10,6 @@
 <body>
 	<h3>MyPage</h3>
 	<a href='<c:url value="logout" />'>로그아웃</a>
+	<label>Last Access Time : </label> ${lastAccessTime}
 </body>
 </html>

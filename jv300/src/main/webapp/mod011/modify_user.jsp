@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,21 +36,14 @@
 		</jsp:include>
 	</div>	
 	<div id="content-header">
-		
 		<h3>회원수정</h3>
-		<form action="modify_user.do" method="post">
-			회원 아이디 : <input type="text" name="userId" placeholder="아이디 입력"/><br>
-			비밀번호 : <input type="password" name="passwd" /><br>
-			이름 : <input type="text" name="userName" /><br>
-			주민번호 : <input type="text" name="ssn" /><br>
-			이메일 : <input type="text" name="email1" />@
-					<select name="email2">
-				        <option value="">-- 선택 --</option>
-				        <option value="google.com">gmail.com</option>
-				        <option value="naver.com">naver.com</option>
-			      	</select><br>
-			주소 : <input type="text" name="addr1" />
-				  <input type="text" name="addr2" />
+		<form action="modify_user.do?uid=${user.getUid()}" method="post">
+			회원 아이디 : <input type="text" name="userId" placeholder="아이디 입력" value="${user.userId}"/><br>
+			비밀번호 : <input type="password" name="passwd" value="${user.getPasswd()}"/><br>
+			이름 : <input type="text" name="userName" value="${user.getUserName()}"/><br>
+			주민번호 : <input type="text" name="ssn" value="${user.getSsn()}"/><br>
+			이메일 : <input type="text" name="email" value="${user.email}" /><br>
+			주소 : <input type="text" name="addr" value="${user.addr}" />
 			<input type="submit" value="확인" />
 		</form>
 	</div>
