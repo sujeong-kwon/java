@@ -33,6 +33,7 @@
 				<th>이메일</th>
 				<th>주소</th>
 				<th>수정</th>
+				<th>삭제</th>
 			</tr>
 			<c:forEach var="users" items="${userList}">
 			<tr>
@@ -41,6 +42,7 @@
 				<td>${users.getEmail()}</td>
 				<td>${users.getAddr()}</td>
 				<td><a href="modify_user.do?uid=${users.getUid()}">수정</a></td>
+				<td><a href="delete_user.do?uid=${users.getUid()}">삭제</a></td>
 			</tr>
 			</c:forEach>
 		</table>

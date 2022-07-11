@@ -58,6 +58,6 @@ public class ModifyUserServlet extends HttpServlet {
 		request.setAttribute("user", user);
 		RequestDispatcher dispatcher = null;
 		dispatcher = request.getRequestDispatcher("update_success.jsp");
-		dispatcher.forward(request, response);
+		dispatcher.forward(request, response);	
 	}
 }

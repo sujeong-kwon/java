@@ -32,10 +32,13 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.eteam.chacha"/>
 		</list>
 		<list key="groupId">
+			<item value="com.eteam"/>
 		</list>
 		<list key="artifactId">
+			<item value="chacha"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
