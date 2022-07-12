@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.varxyz.banking.domain.Account"/>
-    <fullyQualifiedTypeName name="com.varxyz.banking.domain.SavingsAccount"/>
-    <fullyQualifiedTypeName name="com.varxyz.banking.domain.CheckingAccount"/>
-    <fullyQualifiedTypeName name="java.sql.Statement"/>
-    <fullyQualifiedTypeName name="java.sql.Date"/>
-    <fullyQualifiedTypeName name="com.varxyz.jv251.exception.InsufficientBalanceException"/>
     <fullyQualifiedTypeName name="com.varxyz.jv251.exception.OverdraftException"/>
     <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
     <fullyQualifiedTypeName name="java.io.FileInputStream"/>
@@ -37,7 +31,6 @@
     <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
     <fullyQualifiedTypeName name="java.util.Properties"/>
-    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.sql.DriverManager"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
@@ -60,4 +53,11 @@
     <fullyQualifiedTypeName name="java.io.UnsupportedEncodingException"/>
     <fullyQualifiedTypeName name="com.mysql.cj.protocol.x.SyncFlushDeflaterOutputStream"/>
     <fullyQualifiedTypeName name="javax.servlet.http.HttpSession"/>
+    <fullyQualifiedTypeName name="com.eteam.chacha.user.service.UserService"/>
+    <fullyQualifiedTypeName name="com.eteam.chacha.user.dao.UserDao"/>
+    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
+    <fullyQualifiedTypeName name="com.eteam.chacha.user.domain.User"/>
+    <fullyQualifiedTypeName name="com.eteam.chacha.db.NamingService"/>
+    <fullyQualifiedTypeName name="com.eteam.chacha.db.DataSource"/>
+    <fullyQualifiedTypeName name="com.eteam.chacha.review.domain.Review"/>
 </qualifiedTypeNameHistroy>

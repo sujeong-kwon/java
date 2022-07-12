@@ -91,7 +91,7 @@
 			</fieldset>
 			<div>
 				<textarea class="col-auto form-control" type="text" id="reviewContents"
-						  placeholder="좋은 수강평을 남겨주시면 주차차에 큰 힘이 됩니다!"></textarea>
+						  placeholder="좋은 리뷰을 남겨주시면 주차차에 큰 힘이 됩니다!"></textarea>
 			</div>
 			<div class="i-btn">
 	        	<input type="submit" value="리뷰작성" class="in-btn"/>

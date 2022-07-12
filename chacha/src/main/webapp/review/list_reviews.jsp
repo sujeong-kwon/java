@@ -81,7 +81,7 @@
 		height: 300px;
 	}
 	
-	.more , .fold{
+	.more, .fold{
 		font-size: 13px;
 		color: #67b08f;
 	}

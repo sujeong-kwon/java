@@ -1,7 +1,7 @@
 package com.eteam.chacha.favorites;
 
 import com.eteam.chacha.parkinglot.ParkingLot;
-import com.eteam.chacha.user.User;
+import com.eteam.chacha.user.domain.User;
 
 /**
  * @author 권수정

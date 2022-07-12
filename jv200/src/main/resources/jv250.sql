@@ -96,3 +96,35 @@ INSERT INTO User (userId, passwd, userName, ssn, email, addr) VALUES ("example1"
 SELECT * FROM User WHERE userId = "pcn2930" AND passwd = "22222";
 
 UPDATE User SET userId = "hee", passwd = "1234", userName = "고양이", ssn = "12345455", email = "eexd124", addr = "dd동" WHERE uid = 1001;
+
+CREATE TABLE Review (
+	rvid			BIGINT			PRIMARY KEY AUTO_INCREMENT,		
+	uid				BIGINT			NOT NULL,
+	pid				BIGINT			NOT NULL,
+	content			VARCHAR(100),	
+	star_rating		INT(5)			NOT NULL	DEFAULT 5,
+	regDate			TIMESTAMP		NOT NULL	DEFAULT CURRENT_TIMESTAMP
+	
+	CONSTRAINT Review_uid_FK FOREIGN KEY (uid) REFERENCES UserInfo(uid),
+	CONSTRAINT Review_pid_FK FOREIGN KEY (pid) REFERENCES ParkingLot(pid)
+) AUTO_INCREMENT = 1;
+
+CREATE TABLE Review (
+	rvid			BIGINT			PRIMARY KEY AUTO_INCREMENT,		
+	uid				BIGINT			NOT NULL,
+	content			VARCHAR(100),	
+	star_rating		INT(5)			NOT NULL	DEFAULT 5,
+	regDate			TIMESTAMP		NOT NULL	DEFAULT CURRENT_TIMESTAMP,
+	
+	CONSTRAINT Review_uid_FK FOREIGN KEY (uid) REFERENCES User(uid)
+) AUTO_INCREMENT = 1;
+
+show tables;
+
+select * from review;
+
+drop table Review;
+
+
+
+
