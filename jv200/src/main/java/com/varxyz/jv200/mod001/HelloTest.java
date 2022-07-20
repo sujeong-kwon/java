@@ -883,5 +883,51 @@ public class HelloTest {
  * 6. [Follow] usecase : 할 수 있음 하고 아님 다음으로 넘기겠다
  * 7. [usecase]별 담당자
  * 2022-07-11(월) ~ 2022-07-15(금)
- * 8. 이슈                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+ * 8. 이슈    
+ *  
+ * ----------------------------------------2022-07-20-----------------------------------------------                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+ * 스프링(Spring) 프레임워크
+ * ex) 코비의 다이어리 코비가 제시한 틀안에서 다이어리를 쓰는 것
+ * 미리 갖춰진 틀안에서 작업을 하는 것
+ * 이 틀 자체로는 의미가 없다
+ * 라이브러리는 그 자체로 의미가 있는 것 ex)JDBC
+ * 프레임워크는 라이브러리 덩어리
+ * 일정 정도 상속 받아서 사용하는 것
+ * 우리가 사용한 것 서블릿도 프레임워크
+ * 
+ * -. Expert One on J2EE Development without EJ8, Rod Johnson
+ * -. EJB를 사용하지 않고 엔터프라이즈 애플리케이션 개발 방법 소개
+ * -. 스프링은 엔터프라이즈 애플리케이션에서 필요로 하는 기능을 제공하는 프레임워크
+ * -. DI, AOP, 트랜잭션, 시큐리티 등의 기능을 제공
+ * 
+ * 스프링 프레임워크의 특징
+ * -. 상대적으로(EJB) 가벼운 JavaEE 컨테이너로 기존 JavaEE 기능 다수를 제공
+ * -. POJO 기반으로 작성, 테스트 및 배포가 쉬움
+ * -. 다른 프레임워크와의 연동 지원
+ * -. 설정 파일 변경만으로도 소스 수정없이 클래스 사이의 새로운 의존 관계 설립
+ * 
+ * git clone https://github.com/junkiebyte/Spring-MVC-Project.git jvx300
+ * 1. https://projectlombok.org/download 다운로드해서
+ * 2. jar파일 eclipse 폴더 안에 넣기
+ * 3. cmd창 열어서 cd C:\ncs\eclipse
+ * 4. java -jar lombok.jar
+ * 5. specify location 눌러서 eclipse.exe 선택 후 install
+ * 6. import하기 general로
+ * 7. help에 eclipse marketplace에서 spring치고 3 다운
+ * 8. eclipse restart
+ * 9. 서버 켜고 /jv330
+ * 
+ * asm <--- core < ---beans
+ *               < ---expesssion <--next <---transscation
+ * 
+ * Spring은 필요한 클래스를 bean으로 씀
+ * bean등록 시켜놓으면 자동으로 싱글톤처럼 사용
+ * 
+ * dependency injection (ioc)
+ * 싱글톤 같은 패턴이다
+ * jsp -> servlet -> service -> dao 이 객체들을 밖에서 xml이 다룸
+ * 나중엔 servlet할 때처럼 어노테이션으로 바꿈
+ * 
+ * 관계 설정만 class에서 하고 나머지는 xml에서 다하기
+ * 
  * */

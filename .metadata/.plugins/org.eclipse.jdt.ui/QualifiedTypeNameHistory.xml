@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.varxyz.jv251.exception.OverdraftException"/>
-    <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
     <fullyQualifiedTypeName name="java.io.FileInputStream"/>
     <fullyQualifiedTypeName name="com.varxyz.jv251.dao.CustomerDao"/>
     <fullyQualifiedTypeName name="com.varxyz.jv251.dao.AccountDao"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="com.eteam.chacha.db.NamingService"/>
     <fullyQualifiedTypeName name="com.eteam.chacha.db.DataSource"/>
     <fullyQualifiedTypeName name="com.eteam.chacha.review.domain.Review"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.GenericApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.GenericXmlApplicationContext"/>
 </qualifiedTypeNameHistroy>
