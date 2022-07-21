@@ -12,6 +12,9 @@ public class AppMain {
 		GenericApplicationContext context = new GenericXmlApplicationContext(config);
 		Foo foo = context.getBean("foo", Foo.class);
 		System.out.println(foo);
+		
+		Foo foo2 = context.getBean("foo2", Foo.class);
+		System.out.println(foo2);
 		context.close();
 	}
 
