@@ -991,4 +991,39 @@ public class HelloTest {
  *  byName, byType
  *  byType 많이 씀
  *  
+ *  
+ *  ----------------------------------------2022-07-22-----------------------------------------------
+ *  의존 관계 자동 설정
+ *   -. 스프링은 제공된 클래스의 코드를 통해 의존관계를 자동으로 설정할 수 있다.
+ *   -. 속성명 : autowire
+ *   	 -.byName : 프로퍼티 이름과 동일한 빈 객체를 설정
+ *   				프로퍼티의 이름 변경시 참조하는ㄴ 빈의 이름도 함께 변경해야 한다.
+ *   	 -.byType : 프로퍼티 타입과 동일한 빈 객체를 설정
+ *    				하나의 타입에 하나의 빈 만을 정의할 때 사용
+ *    				동일 타입의 빈이 두 개이상이 존재하면 예외가 발생(=> Qualifier어노테이션)
+ *       -. constructor : 기본적으로 byType과 동일
+ *       				  생성자 아규먼트와 동일한 빈 타입의 객체를 설정
+ *       -. autodetect : 기본적으로 byType과 동일
+ *       				 constructor방식을 적용 후 byType 방식을 통해 빈 객체를 설정
+ *   -. @Autowired 어노테이션
+ *   	 -. @Autowired 어노테이션은 빈 타입을 이용하여 의존하는 객체를 삽입
+ *       -. @Autowired 어노테이션은 필드, 생성자, 메소드에 적용가능하다.
+ *       -. @Autowired 어노테이션을 사용하기 위해서는 빈 설정 파일에 <context:annotation-config/>을 정의
+ *       정의
+ *       -. @Autowired(required=false) : 속성값이 존재하지 않아도 예외가 발생하지 않음
+ *  스프링 빈스캔
+ *   -. 클래스들 가운데 특정 어노테이션이 정의된 클래스를 자동으로 빈으로 등록가능
+ *   	-. @Component - 가장 기본적인 스캔 대상 컴포넌트임을 나타낸다.
+ *   	-. @Controller - 프리젠테이션 레이어 컴포넌트임을 나타낸다. (~servlet의 역할을 하는 것)
+ *   	-. @Service - 서비스 레이어 컴포넌트임을 나타낸다. (~service)
+ *   	-. @Repository - 퍼시스턴트 레이어 컴포넌트임을 나타낸다. (~dao)
+ *  -. 등록 시 지정될 빈의 이름은 해당 클래스명의 첫 글자르 소문자로 바꾼 이름을 기본으로 사용한다.
+ *  	ex) 
+ *  		@Controller("memberController") 안 달아줄 경우 클래스 이름으로 사용
+ *  		@Scope("singleton") 안 달아줄 경우 singleton
+ *  		public class MemberController {}
+ *  
+ *  jvx 데이터베이스 만들기
+ *   -. 위에 참고
+ *   -. data source explorer에 db 설정
  * */
