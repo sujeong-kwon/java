@@ -964,7 +964,7 @@ public class HelloTest {
  * WebApplicationContext 인터페이스
  * 	-. 웹 애플리케이션 개발 시 사용되며 웹 애플리케이션 당 하나씩 존재하는 컨테이너
  * 	-. ApplicationContext인터페이스를 상속하며 빈 scope에 대한 추가 기능 정의
- * 	-. 구현체로서 XmlWebApplicationContext클래스 등이 있다.
+ * 	-. 구현체로서 XmlWebApplicationContext클래스, AnnotationConfigWebApplicationContext클래스 등이 있다.
  * 
  * 빈 생성과 의존관계
  * 	-. 스프링 컨테이너는 기본적으로 XML파일을 통해 빈 객체와 연관 관계를 설정
@@ -1026,4 +1026,10 @@ public class HelloTest {
  *  jvx 데이터베이스 만들기
  *   -. 위에 참고
  *   -. data source explorer에 db 설정
+ *   
+ * ----------------------------------------2022-07-25-----------------------------------------------
+ * 프로젝트 위에 마우스 왼쪽 눌러서 properties -> web project settings -> context root 바꾸기 프로젝트 이름으로
+ * 오늘 spring mvc 들어감
+ * jv250 은행시스템 스프링으로 만들어보기
+ * 
  * */

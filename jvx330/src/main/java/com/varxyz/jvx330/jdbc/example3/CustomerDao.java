@@ -38,7 +38,7 @@ public class CustomerDao{
 	
 	public long countCustomers() {
 		String sql = "SELECT count(*) FROM Customer";
-		 return jdbcTemplate.queryForObject(sql, Long.class);
+		return jdbcTemplate.queryForObject(sql, Long.class);
 	}
 	
 	public Customer findCustomersBySsn(String ssn){
