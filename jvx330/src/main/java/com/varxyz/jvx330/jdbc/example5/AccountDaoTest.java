@@ -34,7 +34,7 @@ public class AccountDaoTest {
 		sa.setRegDate(new Date());
 		sa.setAccType('S');
 		dao.addAccount(sa);
-		System.out.println("-inserted");
+		System.out.println("-inserted-");
 	}
 	
 	public static void findAllAccounts(AccountDao dao) {
