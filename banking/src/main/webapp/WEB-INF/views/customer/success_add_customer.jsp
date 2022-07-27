@@ -15,5 +15,11 @@
 	<label>이름 : </label>${customer.name}<br>
 	<label>주민번호 : </label>${customer.ssn}<br>
 	<label>연락처 : </label>${customer.phone}<br>
+	<h3>로그인</h3>
+	<form action="login" method="post">
+		<label>아이디</label><input type="text" name="userId"><br>
+		<label>비밀번호</label><input type="password" name="passwd"><br>
+		<input type="submit" value="로그인"/>
+	</form>
 </body>
 </html>

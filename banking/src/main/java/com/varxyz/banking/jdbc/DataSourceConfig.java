@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.varxyz.banking.account.dao.AccountDao;
-import com.varxyz.banking.customer.dao.AddCustomerDao;
+import com.varxyz.banking.customer.dao.CustomerDao;
 
 
 @Configuration
@@ -32,8 +32,8 @@ public class DataSourceConfig {
 	}
 	
 	@Bean
-	public AddCustomerDao addCustomerDao() {
-		return new AddCustomerDao(dataSource());
+	public CustomerDao addCustomerDao() {
+		return new CustomerDao(dataSource());
 	}
 	
 	@Bean

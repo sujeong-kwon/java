@@ -1,0 +1,200 @@
+@charset "UTF-8";
+body {
+	overflow: auto;
+}
+.wrap {
+	width: 60%;
+	height: auto;
+	margin: 0 auto;
+	margin-top: 40px;
+	padding: 100px;
+	box-sizing: border-box;
+	text-align: center;
+}
+/*
+.wrap h3 {
+	text-align: center;
+	font-size: 24px;
+	margin-bottom: 40px;
+	color: #1A3C40;
+}
+*/
+.parkingInfo {
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+}
+.parkingInfo p {
+	text-align: left;
+	margin-top: 50px;
+	margin-bottom: 20px;
+	font-size: 20px;
+	color: #1A3C40;
+	font-weight: bold;
+}
+.parkingInfo table, .rezInfo table {
+	margin: 0 auto;
+	width: 100%;
+	border: 1px solid #EDE6DB;
+	border-collapse: collapse;
+}
+.rezInfo table {
+	margin-bottom: 40px;
+}
+
+.rezInfo table tr td.review {
+	background: #EDE6DB;	
+}
+.rezInfo table tr td.review div {
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+.rezInfo table tr td.review div a {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	padding-top: 65px;
+	box-sizing: border-box;
+	font-size: 18px;
+	color: #888;
+	font-weight: bold;
+	line-height: 100%;
+}
+.parkingInfo th, .parkingInfo td, .rezInfo th, .rezInfo td {
+	height: 50px;
+	border: 1px solid #EDE6DB;
+	text-align: center;
+}
+.parkingInfo th, .rezInfo th {
+	background: #417D7A;
+	color: white;
+}
+
+.rez p {
+	margin-top: 50px;
+	margin-bottom: 20px;
+	font-size: 20px;
+	color: #1A3C40;
+	font-weight: bold;
+	text-align: left;
+}
+.rez .type {
+	display: flex;
+}
+.rez label.radio {
+	display: inline-block;
+	/*width: 90px;*/
+	width: 33.333%;
+	height: 45px;
+	border: 1px solid #EDE6DB;
+	color: #1A3C40;
+	text-align: center;
+	line-height: 43px;
+	cursor: pointer;
+}
+.rez label.radio + label.radio {
+	margin-left: 10px;
+}
+.rez label.radio.on {
+	background: #417D7A;
+    color: white;
+}
+
+.rez label select {
+	/*width: 90px;*/
+	width: 43%;
+	height: 40px;
+	border: 1px solid #EDE6DB;
+	padding: 0 15px;
+	margin: 0 5px;
+	box-sizing: border-box;
+	outline: none;
+}
+.rez label + label {
+	margin-left: 30px;
+}
+.rez .startT select, .rez .endT select {
+	width: 36%;
+}
+.rez .startD.off {
+	display: none;
+}
+.rez .t.off {
+	display: none;
+}
+.rez .startT.off {
+	display: none;
+}
+.rez .endT.off {
+	display: none;
+}
+
+.rez input[type=submit] {
+	display: block;
+	width: 150px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 80px;
+    background: #417D7A;
+    border: none;
+    border-radius: 30px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    font-family: "Jalnan";
+}
+.rez input[type=submit]:hover {
+	color : #417D7A;
+	background-color: #fff;
+	border : 1px solid #417D7A;
+}
+
+/* rez_success.jsp 에서 사용 */
+p.success {
+	text-align: center;
+	margin-top: 25%;
+	font-size: 28px;
+	font-weight: bold;
+	color: #1A3C40;
+}
+span.color {
+	color: #417D7A;
+	margin-right: 5px;
+}
+.btn {
+	display: inline-block;
+	width: 150px;
+    height: 50px;
+    margin: 0 auto;
+    margin-top: 80px;
+    background: #417D7A;
+    border: none;
+    border-radius: 30px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    font-family: "Jalnan";
+}
+.btn + .btn {
+	margin-left: 50px;
+}
+.btn:hover {
+	color : #417D7A;
+	background-color: #fff;
+	border : 1px solid #417D7A;
+}
+
+@media (max-width: 1530px) {
+	.rez .startM, .rez .startD, .rez .startT, .rez .endT {
+		display: block;
+	}
+	.rez .startM + label, .rez .startD + label, .rez .startT + label, .rez .endT + label {
+		margin-left: 0;
+		margin-top: 20px;
+	}
+}

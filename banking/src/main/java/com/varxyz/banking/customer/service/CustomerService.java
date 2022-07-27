@@ -1,19 +1,28 @@
 package com.varxyz.banking.customer.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.varxyz.banking.customer.dao.AddCustomerDao;
+import com.varxyz.banking.customer.dao.CustomerDao;
 import com.varxyz.banking.customer.domain.Customer;
 
 @Service
 public class CustomerService {
 	
 	@Autowired
-	private AddCustomerDao addCustomerDao;
+	private CustomerDao customerDao;
 	
 	public void addCustomer(Customer customer) {
-		addCustomerDao.addCustomer(customer);
+		customerDao.addCustomer(customer);
 	}
 	
+	public List<Customer> isValidUser(String email, String passwd) {
+		return customerDao.findCustomerByIdPw(email, passwd);
+	}
+
+	public Customer getCustomerByEmail(String email) {
+		return customerDao.findCustomersByEmail(email);
+	}	
 }

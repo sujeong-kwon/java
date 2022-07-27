@@ -83,6 +83,7 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\ncs\eclipse-workspace__\juchacha"/>
 			<item value="C:\ncs\eclipse-workspace__\banking"/>
 			<item value="C:\ncs\eclipse-workspace__\jvx340"/>
 			<item value="C:\ncs\eclipse-workspace__\Spring-MVC-Project-master"/>
